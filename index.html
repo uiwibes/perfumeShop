@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alda Perfume - Find Your Signature Scent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/i18n.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <style>
+        :root {
+            --primary-gold: #c2a575;
+            --primary-gold-light: #e2d5bc;
+        }
+        
+        .font-cormorant { font-family: 'Cormorant Garamond', serif; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        
+        .golden-gradient {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+        }
+        .golden-text-gradient {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-bg-light {
+            background: linear-gradient(to bottom, #ffffff 0%, #faf7f2 100%);
+        }
+        .section-bg-dark {
+            background: linear-gradient(to bottom, #faf7f2 0%, #f5efe5 100%);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: opacity 0.3s ease;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        .btn-outline {
+            border: 2px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background-color: var(--primary-gold);
+            color: white;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+            .gender-option img {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .gender-option img {
+                height: 250px;
+            }
+        }
+
+        /* Language selector styles */
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language-selector select {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            padding-right: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .language-selector::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body class="bg-white font-montserrat">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center space-x-2 text-xl tracking-widest">
+                    ALDA PERFUME
+                </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.home">Home</a>
+                    <a href="/shop.html" class="nav-link text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.shop">Shop</a>
+                    <a href="/about.html" class="nav-link text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.about">About</a>
+                    <a href="/contact.html" class="nav-link text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.contact">Contact</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <!-- Language Selector -->
+                    <div class="language-selector text-gray-600">
+                        <select id="languageSelector" class="text-gray-600 hover:text-amber-800 transition-colors">
+                            <option value="en" data-i18n="languageSelector.en">English</option>
+                            <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
+                        </select>
+                    </div>
+                    <button class="text-gray-600 hover:text-amber-800 transition-colors" aria-label="Search">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                    <button class="text-gray-600 hover:text-amber-800 transition-colors" aria-label="Account">
+                        <i class="fas fa-user text-xl"></i>
+                    </button>
+                    <button class="relative text-gray-600 hover:text-amber-800 transition-colors" aria-label="Cart">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden text-gray-600 hover:text-amber-800 transition-colors" aria-label="Menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform md:hidden">
+            <div class="p-6">
+                <button id="closeMenu" class="absolute top-4 right-4 text-gray-600 hover:text-amber-800" aria-label="Close menu">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="mt-8 space-y-6">
+                    <a href="/" class="block text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.home">Home</a>
+                    <a href="/shop.html" class="block text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.shop">Shop</a>
+                    <a href="/about.html" class="block text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.about">About</a>
+                    <a href="/contact.html" class="block text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.contact">Contact</a>
+                    <!-- Mobile Language Selector -->
+                    <div class="language-selector text-gray-600 mt-4">
+                        <select id="mobileLanguageSelector" class="text-gray-600 hover:text-amber-800 transition-colors">
+                            <option value="en" data-i18n="languageSelector.en">English</option>
+                            <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+        <div class="section-bg-dark flex items-center justify-center p-6 md:p-12">
+            <div class="hero-content text-center md:text-left w-full max-w-xl">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-cormorant font-bold mb-4 md:mb-6" data-i18n="hero.title">DISCOVER YOUR SIGNATURE SCENT</h1>
+                <p class="text-base md:text-lg mb-6 md:mb-8 text-gray-600" data-i18n="hero.subtitle">A personalized journey to find your perfect fragrance</p>
+                <button id="startQuiz" class="btn-primary uppercase tracking-wider text-sm md:text-base w-full md:w-auto" data-i18n="hero.cta">
+                    START YOUR JOURNEY
+                </button>
+            </div>
+        </div>
+        <div id="main-image-banner"></div>
+    </section>
+
+    <!-- Gender Selection Section -->
+    <section id="genderSection" class="section-bg-light py-12 md:py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-cormorant font-bold text-center mb-8 md:mb-16" data-i18n="genderSection.title">Find Your Perfect Scent</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Feminine -->
+                <div class="gender-option cursor-pointer group">
+                    <div class="overflow-hidden mb-4 md:mb-6 rounded-lg">
+                        <img src="images/photo-1529626455594-4ff0802cfb7e.jpg" 
+                             alt="Feminine" 
+                             class="w-full h-[250px] sm:h-[350px] md:h-[500px] object-cover transform transition duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl md:text-2xl font-cormorant font-bold mb-2 md:mb-3" data-i18n="genderSection.feminine.title">Feminine</h3>
+                        <p class="text-sm md:text-base text-gray-600" data-i18n="genderSection.feminine.description">Delicate & Sophisticated Fragrances</p>
+                    </div>
+                </div>
+
+                <!-- Masculine -->
+                <div class="gender-option cursor-pointer group">
+                    <div class="overflow-hidden mb-4 md:mb-6 rounded-lg">
+                        <img src="images/photo-1539571696357-5a69c17a67c6.jpg" 
+                             alt="Masculine" 
+                             class="w-full h-[250px] sm:h-[350px] md:h-[500px] object-cover transform transition duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl md:text-2xl font-cormorant font-bold mb-2 md:mb-3" data-i18n="genderSection.masculine.title">Masculine</h3>
+                        <p class="text-sm md:text-base text-gray-600" data-i18n="genderSection.masculine.description">Bold & Distinguished Fragrances</p>
+                    </div>
+                </div>
+
+                <!-- Neutral -->
+                <div class="gender-option cursor-pointer group sm:col-span-2 md:col-span-1">
+                    <div class="overflow-hidden mb-4 md:mb-6 rounded-lg">
+                        <img src="images/photo-1557170334-a9632e77c6e4.jpg" 
+                             alt="Neutral" 
+                             class="w-full h-[250px] sm:h-[350px] md:h-[500px] object-cover transform transition duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl md:text-2xl font-cormorant font-bold mb-2 md:mb-3" data-i18n="genderSection.neutral.title">Neutral</h3>
+                        <p class="text-sm md:text-base text-gray-600" data-i18n="genderSection.neutral.description">Universal & Versatile Fragrances</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quizSection" class="hidden py-12 md:py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-cormorant font-bold text-center mb-8 md:mb-16">Discover Your Fragrance</h2>
+            <div id="questionContainer" class="max-w-3xl mx-auto space-y-6 md:space-y-8">
+                <!-- Questions will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="resultsSection" class="hidden section-bg-light py-12 md:py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-cormorant font-bold text-center mb-8 md:mb-16">Your Perfect Match</h2>
+            <div id="perfumeResults" class="max-w-7xl mx-auto">
+                <!-- Results will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg md:text-xl font-cormorant font-bold mb-4 md:mb-6">Alda Perfume</h3>
+                    <p class="text-gray-400">Crafting your perfect scent story</p>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-base md:text-lg font-cormorant font-bold mb-4 md:mb-6">Quick Links</h4>
+                    <ul class="space-y-3 md:space-y-4 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Collections</a></li>
+                        <li><a href="#" class="hover:text-white transition">Find Your Scent</a></li>
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-base md:text-lg font-cormorant font-bold mb-4 md:mb-6">Contact</h4>
+                    <ul class="space-y-3 md:space-y-4 text-gray-400">
+                        <li>Email: contact@aldaperfume.com</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        // Function to toggle menu
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', () => {
+            toggleMenu(true);
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            toggleMenu(false);
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                toggleMenu(false);
+            }
+        });
+
+        // Add event listener for mobile language selector
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileLanguageSelector = document.getElementById('mobileLanguageSelector');
+            if (mobileLanguageSelector) {
+                mobileLanguageSelector.addEventListener('change', (e) => {
+                    window.i18n.switchLanguage(e.target.value);
+                    // Also update the desktop selector
+                    const desktopSelector = document.getElementById('languageSelector');
+                    if (desktopSelector) {
+                        desktopSelector.value = e.target.value;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

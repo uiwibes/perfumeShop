@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "language": "English",
+    "direction": "ltr"
+  },
+  "navigation": {
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About",
+    "contact": "Contact",
+    "search": "Search",
+    "account": "Account",
+    "cart": "Cart"
+  },
+  "hero": {
+    "title": "DISCOVER YOUR SIGNATURE SCENT",
+    "subtitle": "A personalized journey to find your perfect fragrance",
+    "cta": "START YOUR JOURNEY"
+  },
+  "genderSection": {
+    "title": "Find Your Perfect Scent",
+    "feminine": {
+      "title": "Feminine",
+      "description": "Delicate & Sophisticated Fragrances"
+    },
+    "masculine": {
+      "title": "Masculine",
+      "description": "Bold & Distinguished Fragrances"
+    },
+    "neutral": {
+      "title": "Neutral",
+      "description": "Universal & Versatile Fragrances"
+    }
+  },
+  "shop": {
+    "title": "Our Collection",
+    "subtitle": "Explore our curated selection of premium fragrances",
+    "categories": {
+      "all": "All",
+      "feminine": "Feminine",
+      "masculine": "Masculine",
+      "unisex": "Unisex"
+    },
+    "filters": {
+      "title": "Filters",
+      "price": "Price",
+      "brand": "Brand",
+      "notes": "Notes",
+      "intensity": "Intensity",
+      "apply": "Apply Filters",
+      "clear": "Clear All"
+    },
+    "sort": {
+      "title": "Sort by",
+      "popularity": "Popularity",
+      "newest": "Newest",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low"
+    },
+    "product": {
+      "addToCart": "Add to Cart",
+      "viewDetails": "View Details"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Our Story",
+      "subtitle": "Crafting exceptional fragrances since 2010"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "At Alda Perfume, we believe that fragrance is a form of self-expression. Our mission is to create exceptional scents that capture emotions, memories, and aspirations. We are dedicated to crafting perfumes that not only smell exquisite but also tell a story and evoke feelings."
+    },
+    "values": {
+      "title": "Our Values",
+      "quality": {
+        "title": "Quality",
+        "description": "We source the finest ingredients from around the world to create perfumes of exceptional quality."
+      },
+      "sustainability": {
+        "title": "Sustainability",
+        "description": "We are committed to sustainable practices in our production process and packaging."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We constantly push boundaries to create unique and memorable fragrances."
+      }
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "description": "The passionate individuals behind our exceptional fragrances"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "We'd love to hear from you",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": "123 Perfume Street, Fragrance City, FC 12345",
+      "phone": "+1 (555) 123-4567",
+      "email": "info@aldaperfume.com",
+      "hours": "Monday - Friday: 9am - 5pm"
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Subscribe to our newsletter",
+      "placeholder": "Your email address",
+      "button": "Subscribe"
+    },
+    "copyright": "© 2023 Alda Perfume. All rights reserved."
+  },
+  "languageSelector": {
+    "en": "English",
+    "tr": "Turkish"
+  }
+} 

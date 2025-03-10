@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "language": "Türkçe",
+    "direction": "ltr"
+  },
+  "navigation": {
+    "home": "Ana Sayfa",
+    "shop": "Mağaza",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "search": "Ara",
+    "account": "Hesabım",
+    "cart": "Sepet"
+  },
+  "hero": {
+    "title": "İMZA KOKUNUZU KEŞFEDİN",
+    "subtitle": "Mükemmel parfümünüzü bulmak için kişiselleştirilmiş bir yolculuk",
+    "cta": "YOLCULUĞUNUZA BAŞLAYIN"
+  },
+  "genderSection": {
+    "title": "Mükemmel Kokunuzu Bulun",
+    "feminine": {
+      "title": "Kadınsı",
+      "description": "Zarif ve Sofistike Kokular"
+    },
+    "masculine": {
+      "title": "Erkeksi",
+      "description": "Cesur ve Seçkin Kokular"
+    },
+    "neutral": {
+      "title": "Nötr",
+      "description": "Evrensel ve Çok Yönlü Kokular"
+    }
+  },
+  "shop": {
+    "title": "Koleksiyonumuz",
+    "subtitle": "Premium parfümlerimizin özenle seçilmiş koleksiyonunu keşfedin",
+    "categories": {
+      "all": "Tümü",
+      "feminine": "Kadın",
+      "masculine": "Erkek",
+      "unisex": "Unisex"
+    },
+    "filters": {
+      "title": "Filtreler",
+      "price": "Fiyat",
+      "brand": "Marka",
+      "notes": "Notlar",
+      "intensity": "Yoğunluk",
+      "apply": "Filtreleri Uygula",
+      "clear": "Tümünü Temizle"
+    },
+    "sort": {
+      "title": "Sırala",
+      "popularity": "Popülerlik",
+      "newest": "En Yeni",
+      "priceAsc": "Fiyat: Düşükten Yükseğe",
+      "priceDesc": "Fiyat: Yüksekten Düşüğe"
+    },
+    "product": {
+      "addToCart": "Sepete Ekle",
+      "viewDetails": "Detayları Gör"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Hikayemiz",
+      "subtitle": "2010'dan beri olağanüstü kokular üretiyoruz"
+    },
+    "mission": {
+      "title": "Misyonumuz",
+      "content": "Alda Perfume olarak, parfümün bir kendini ifade etme biçimi olduğuna inanıyoruz. Misyonumuz, duyguları, anıları ve hayalleri yakalayan olağanüstü kokular yaratmaktır. Sadece muhteşem kokan değil, aynı zamanda bir hikaye anlatan ve duygular uyandıran parfümler üretmeye adanmış durumdayız."
+    },
+    "values": {
+      "title": "Değerlerimiz",
+      "quality": {
+        "title": "Kalite",
+        "description": "Olağanüstü kalitede parfümler yaratmak için dünyanın dört bir yanından en kaliteli malzemeleri tedarik ediyoruz."
+      },
+      "sustainability": {
+        "title": "Sürdürülebilirlik",
+        "description": "Üretim sürecimizde ve ambalajlarımızda sürdürülebilir uygulamalara bağlıyız."
+      },
+      "innovation": {
+        "title": "Yenilik",
+        "description": "Benzersiz ve akılda kalıcı kokular yaratmak için sürekli olarak sınırları zorluyoruz."
+      }
+    },
+    "team": {
+      "title": "Ekibimizle Tanışın",
+      "description": "Olağanüstü kokularımızın arkasındaki tutkulu bireyler"
+    }
+  },
+  "contact": {
+    "title": "İletişime Geçin",
+    "subtitle": "Sizden haber almak isteriz",
+    "form": {
+      "name": "Adınız",
+      "email": "E-posta Adresiniz",
+      "subject": "Konu",
+      "message": "Mesajınız",
+      "submit": "Mesaj Gönder"
+    },
+    "info": {
+      "title": "İletişim Bilgileri",
+      "address": "123 Parfüm Sokak, Koku Şehri, KŞ 12345",
+      "phone": "+90 (555) 123 45 67",
+      "email": "info@aldaperfume.com",
+      "hours": "Pazartesi - Cuma: 09:00 - 17:00"
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Bültenimize abone olun",
+      "placeholder": "E-posta adresiniz",
+      "button": "Abone Ol"
+    },
+    "copyright": "© 2023 Alda Perfume. Tüm hakları saklıdır."
+  },
+  "languageSelector": {
+    "en": "İngilizce",
+    "tr": "Türkçe"
+  }
+} 

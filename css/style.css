@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+
+/* Custom Properties */
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+    --primary-gold: #c2a575;
+    --primary-gold-light: #e2d5bc;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Quiz Styles */
+#quizSection {
+    background-color: #1a1410;
+    color: white;
+}
+
+.question-card {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.option-button {
+    width: 100%;
+    padding: 1.5rem;
+    margin: 0.75rem 0;
+    border: 2px solid var(--primary-gold);
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #4a3c28;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+}
+
+.option-button:hover {
+    background-color: var(--primary-gold-light);
+    color: #2a1f16;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.option-button.selected {
+    background-color: var(--primary-gold);
+    color: white;
+    border-color: var(--primary-gold);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    font-weight: 600;
+}
+
+/* Perfume Card Styles */
+.perfume-card {
+    background: white;
+    border: none;
+    overflow: hidden;
+}
+
+.perfume-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.perfume-info {
+    padding: 2rem;
+    text-align: center;
+}
+
+.perfume-info h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.perfume-info p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Journey Steps */
+.journey-step {
+    position: relative;
+}
+
+.journey-step img {
+    filter: grayscale(100%);
+    transition: all 0.7s ease;
+}
+
+.journey-step:hover img {
+    filter: grayscale(0);
+}
+
+/* Custom Transitions */
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+a {
+    transition: all 0.3s ease;
+}
+
+button {
+    transition: all 0.3s ease;
+}
+
+/* Image Hover Effect */
+.image-hover {
+    overflow: hidden;
+}
+
+.image-hover img {
+    transition: transform 0.7s ease;
+}
+
+.image-hover:hover img {
+    transform: scale(1.05);
+}
+
+/* Gender Selection Styles */
+.gender-option {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.gender-option.selected::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid black;
+    pointer-events: none;
+}
+
+.gender-option:hover {
+    transform: translateY(-4px);
+}
+
+.gender-option img {
+    filter: grayscale(100%);
+    transition: all 0.7s ease;
+}
+
+.gender-option:hover img,
+.gender-option.selected img {
+    filter: grayscale(0);
+}
+
+.gender-option h4 {
+    transition: color 0.3s ease;
+}
+
+.gender-option:hover h4 {
+    color: black;
+}
+
+.gender-option.selected {
+    transform: translateY(-4px);
+}
+
+.gender-option.selected h4 {
+    color: black;
+} 
+#main-image-banner{
+    background-image: url('../images/photo-1615634260167-c8cdede054de.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
