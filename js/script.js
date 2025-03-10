@@ -18,14 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Gender selection
     const genderOptions = document.querySelectorAll('.gender-option');
-    genderOptions.forEach(option => {
+    genderOptions.forEach((option, index) => {
         option.addEventListener('click', function() {
             // Remove selected class from all options
             genderOptions.forEach(opt => opt.classList.remove('selected'));
             // Add selected class to clicked option
             this.classList.add('selected');
-            // Store selected gender
-            selectedGender = this.querySelector('h3').textContent.toLowerCase();
+            
+            // Store selected gender based on index
+            const genders = ['feminine', 'masculine', 'neutral'];
+            selectedGender = genders[index];
+            
             // Show quiz section after short delay
             setTimeout(() => {
                 quizSection.classList.remove('hidden');
@@ -671,7 +674,7 @@ function showQuestion() {
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
-                <h3 class="text-2xl text-center flex-grow px-4">${question.text}</h3>
+                <h3 class="text-2xl text-center flex-grow px-4" data-i18n="quiz.questions.${selectedGender}.${question.id}.text">${question.text}</h3>
                 <button class="next-question p-2 rounded-full hover:bg-gray-100 transition-colors ${currentQuestion === genderQuestions.length - 1 ? 'invisible' : ''}"
                         ${currentQuestion === genderQuestions.length - 1 ? 'disabled' : ''}>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -687,7 +690,7 @@ function showQuestion() {
                                  alt="${option.text}" 
                                  class="w-full h-48 object-cover transform transition-transform duration-500 group-hover:scale-110">
                         </div>
-                        <p class="text-lg font-medium group-hover:text-indigo-600 transition-colors">
+                        <p class="text-lg font-medium group-hover:text-indigo-600 transition-colors" data-i18n="quiz.questions.${selectedGender}.${question.id}.options.${index}">
                             ${option.text}
                         </p>
                     </button>
@@ -726,14 +729,19 @@ function showQuestion() {
             }
         });
     }
+
+    // Update translations for dynamically added elements
+    if (window.i18n && typeof window.i18n.updateContent === 'function') {
+        window.i18n.updateContent();
+    }
 }
 
 function showResults() {
     // Show loading message first
     perfumeResults.innerHTML = `
         <div class="text-center col-span-full">
-            <h2 class="text-3xl font-bold mb-4 text-gray-800">Your Perfect Match</h2>
-            <p class="text-xl mb-8 text-gray-600">We're crafting your perfect fragrance recommendation...</p>
+            <h2 class="text-3xl font-bold mb-4 text-gray-800" data-i18n="results.loadingTitle">Your Perfect Match</h2>
+            <p class="text-xl mb-8 text-gray-600" data-i18n="results.loadingMessage">We're crafting your perfect fragrance recommendation...</p>
             <div class="animate-pulse flex justify-center">
                 <div class="h-4 w-4 bg-amber-500 rounded-full mx-1"></div>
                 <div class="h-4 w-4 bg-amber-500 rounded-full mx-1 animate-pulse-delay-200"></div>
@@ -771,6 +779,11 @@ function showResults() {
         // Combine all relevant recommendations
         const recommendations = [];
         
+        // Get translations for match types
+        const perfectMatchText = window.i18n ? window.i18n.getTranslation('results.matchTypes.perfect') : 'Perfect Match';
+        const greatAlternativeText = window.i18n ? window.i18n.getTranslation('results.matchTypes.alternative') : 'Great Alternative';
+        const complementaryChoiceText = window.i18n ? window.i18n.getTranslation('results.matchTypes.complementary') : 'Complementary Choice';
+        
         // Add primary recommendation
         if (primaryRec) {
             recommendations.push({
@@ -778,7 +791,7 @@ function showResults() {
                 description: primaryRec.description,
                 notes: Array.isArray(primaryRec.notes) ? primaryRec.notes.join(", ") : primaryRec.notes,
                 image: primaryRec.image,
-                match: "Perfect Match",
+                match: perfectMatchText,
                 matchClass: "bg-gradient-to-r from-amber-500 to-amber-600"
             });
         }
@@ -790,7 +803,7 @@ function showResults() {
                 description: secondaryRec.description,
                 notes: Array.isArray(secondaryRec.notes) ? secondaryRec.notes.join(", ") : secondaryRec.notes,
                 image: secondaryRec.image,
-                match: "Great Alternative",
+                match: greatAlternativeText,
                 matchClass: "bg-gradient-to-r from-purple-500 to-purple-600"
             });
         }
@@ -804,18 +817,24 @@ function showResults() {
                         description: perfume.description,
                         notes: perfume.notes,
                         image: perfume.image,
-                        match: "Complementary Choice",
+                        match: complementaryChoiceText,
                         matchClass: "bg-gradient-to-r from-rose-400 to-rose-500"
                     });
                 }
             });
         });
 
+        // Get translations for results section
+        const titleText = window.i18n ? window.i18n.getTranslation('results.title') : 'Your Perfect Match';
+        const subtitleText = window.i18n ? window.i18n.getTranslation('results.subtitle') : 'Based on your unique preferences, we\'ve selected these fragrances that perfectly match your personality.';
+        const keyNotesText = window.i18n ? window.i18n.getTranslation('results.keyNotes') : 'Key Notes';
+        const takeQuizAgainText = window.i18n ? window.i18n.getTranslation('results.restart') : 'Take Quiz Again';
+
         // Display recommendations
         const resultsHTML = `
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-800">Your Perfect Match</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Based on your unique preferences, we've selected these fragrances that perfectly match your personality.</p>
+                <h2 class="text-3xl font-bold mb-4 text-gray-800" data-i18n="results.title">${titleText}</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="results.subtitle">${subtitleText}</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 ${recommendations.map(rec => `
@@ -830,7 +849,7 @@ function showResults() {
                             <h3 class="text-xl font-semibold text-gray-900 mb-2">${rec.name}</h3>
                             <p class="text-gray-600 mb-4 line-clamp-2">${rec.description}</p>
                             <div class="border-t border-gray-100 pt-4">
-                                <p class="text-sm font-medium text-amber-600">Key Notes</p>
+                                <p class="text-sm font-medium text-amber-600" data-i18n="results.keyNotes">${keyNotesText}</p>
                                 <p class="text-sm text-gray-600 mt-1">${rec.notes}</p>
                             </div>
                         </div>
@@ -838,8 +857,8 @@ function showResults() {
                 `).join('')}
             </div>
             <div class="text-center mt-12">
-                <button onclick="startQuiz()" class="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-8 rounded-full transition-colors duration-300">
-                    Take Quiz Again
+                <button onclick="startQuiz()" class="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-8 rounded-full transition-colors duration-300" data-i18n="results.restart">
+                    ${takeQuizAgainText}
                 </button>
             </div>
         `;
@@ -849,8 +868,12 @@ function showResults() {
         resultsSection.classList.remove('hidden');
         perfumeResults.innerHTML = resultsHTML;
         resultsSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // Update translations for dynamically added elements
+        if (window.i18n && typeof window.i18n.updateContent === 'function') {
+            window.i18n.updateContent();
+        }
     }, 2000); // 2-second delay to show loading animation
-    
 }
      // Mobile Menu Functionality
      const mobileMenuBtn = document.getElementById('mobileMenuBtn');

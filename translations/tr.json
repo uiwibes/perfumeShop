@@ -32,6 +32,178 @@
       "description": "Evrensel ve Çok Yönlü Kokular"
     }
   },
+  "quiz": {
+    "questions": {
+      "feminine": {
+        "1": {
+          "text": "İdeal akşamınızı nasıl tanımlarsınız?",
+          "options": {
+            "0": "Sofistike bir akşam yemeği",
+            "1": "Rahatlatıcı bir spa gecesi",
+            "2": "Gece boyunca dans etmek",
+            "3": "Mum ışığında kitap okumak"
+          }
+        },
+        "2": {
+          "text": "Hangi ortam sizi en huzurlu hissettirir?",
+          "options": {
+            "0": "Çiçek açan bir bahçe",
+            "1": "Sahil kenarında bir sığınak",
+            "2": "Lüks bir butik",
+            "3": "Sıcak bir kafe"
+          }
+        },
+        "3": {
+          "text": "Tercih ettiğiniz stil estetiği nedir?",
+          "options": {
+            "0": "Klasik ve zamansız",
+            "1": "Cesur ve dramatik",
+            "2": "Yumuşak ve romantik",
+            "3": "Modern minimalist"
+          }
+        },
+        "4": {
+          "text": "En sevdiğiniz mevsim nedir?",
+          "options": {
+            "0": "Çiçek açan ilkbahar",
+            "1": "Sahilde yaz",
+            "2": "Sıcak sonbahar akşamları",
+            "3": "Zarif kış geceleri"
+          }
+        },
+        "5": {
+          "text": "Tercih ettiğiniz aksesuar stili nedir?",
+          "options": {
+            "0": "Zarif inciler",
+            "1": "Renkli dikkat çekici parçalar",
+            "2": "Vintage esinli takılar",
+            "3": "Minimalist tasarımlar"
+          }
+        }
+      },
+      "masculine": {
+        "1": {
+          "text": "İdeal hafta sonu aktiviteniz nedir?",
+          "options": {
+            "0": "Macera sporları",
+            "1": "İş ağı oluşturma",
+            "2": "Ormanda yürüyüş",
+            "3": "Şehir keşfi"
+          }
+        },
+        "2": {
+          "text": "Hangi ortam sizi en çok ilham veriyor?",
+          "options": {
+            "0": "Modern bir şehir silüeti",
+            "1": "Sık orman",
+            "2": "Lüks araba galerisi",
+            "3": "Dağ zirvesi"
+          }
+        },
+        "3": {
+          "text": "Tercih ettiğiniz giyim tarzı nedir?",
+          "options": {
+            "0": "Klasik takım elbise",
+            "1": "Rahat spor giyim",
+            "2": "Şık günlük",
+            "3": "Vintage esinli"
+          }
+        },
+        "4": {
+          "text": "En sevdiğiniz içecek nedir?",
+          "options": {
+            "0": "Tek malt viski",
+            "1": "El yapımı kokteyl",
+            "2": "Soğuk bira",
+            "3": "Espresso"
+          }
+        },
+        "5": {
+          "text": "Hangi araba tarzını tercih edersiniz?",
+          "options": {
+            "0": "Lüks sedan",
+            "1": "Spor araba",
+            "2": "Arazi aracı",
+            "3": "Klasik vintage"
+          }
+        }
+      },
+      "neutral": {
+        "1": {
+          "text": "Hangi doğal ortamda kendinizi en rahat hissedersiniz?",
+          "options": {
+            "0": "Sahil",
+            "1": "Orman",
+            "2": "Dağlar",
+            "3": "Şehir parkı"
+          }
+        },
+        "2": {
+          "text": "Tercih ettiğiniz renk paleti nedir?",
+          "options": {
+            "0": "Nötr ve toprak tonları",
+            "1": "Canlı ve parlak renkler",
+            "2": "Pastel tonlar",
+            "3": "Monokrom"
+          }
+        },
+        "3": {
+          "text": "Boş zamanlarınızda ne yapmayı tercih edersiniz?",
+          "options": {
+            "0": "Kitap okumak",
+            "1": "Doğada yürüyüş",
+            "2": "Sanat ve müzik",
+            "3": "Arkadaşlarla vakit geçirmek"
+          }
+        },
+        "4": {
+          "text": "Hangi koku ailesini tercih edersiniz?",
+          "options": {
+            "0": "Narenciye ve taze",
+            "1": "Odunsu ve baharatlı",
+            "2": "Çiçeksi ve meyveli",
+            "3": "Temiz ve hafif"
+          }
+        },
+        "5": {
+          "text": "Parfümünüzün nasıl hissettirmesini istersiniz?",
+          "options": {
+            "0": "Rahatlatıcı ve sakinleştirici",
+            "1": "Enerji verici ve canlandırıcı",
+            "2": "Sofistike ve zarif",
+            "3": "Gizemli ve çekici"
+          }
+        }
+      }
+    }
+  },
+  "results": {
+    "personalityTitle": "Koku Kişiliğiniz",
+    "restart": "Tekrar Başla",
+    "title": "Mükemmel Eşleşmeniz",
+    "subtitle": "Benzersiz tercihlerinize göre, kişiliğinize mükemmel şekilde uyan bu kokuları seçtik.",
+    "loadingTitle": "Mükemmel Eşleşmeniz",
+    "loadingMessage": "Size özel koku önerinizi hazırlıyoruz...",
+    "keyNotes": "Ana Notalar",
+    "matchTypes": {
+      "perfect": "Mükemmel Eşleşme",
+      "alternative": "Harika Alternatif",
+      "complementary": "Tamamlayıcı Seçim"
+    },
+    "personalities": {
+      "elegant": "Zarafet ve sofistike bir hava arıyorsunuz. Klasik ve zamansız kokular sizin tarzınızı yansıtıyor.",
+      "relaxed": "Rahatlatıcı ve huzur verici kokulara çekiliyorsunuz. Sakinleştirici notalar sizin için mükemmel.",
+      "vibrant": "Canlı ve enerjik kokulardan hoşlanıyorsunuz. Dikkat çekici ve neşeli parfümler size hitap ediyor.",
+      "romantic": "Romantik ve duygusal kokulara eğiliminiz var. Çiçeksi ve tatlı notalar sizin için ideal.",
+      "floral": "Çiçeksi kokular sizin tarzınızı yansıtıyor. Zarif ve feminen notalar size hitap ediyor.",
+      "fresh": "Ferah ve canlandırıcı kokular arıyorsunuz. Narenciye ve deniz notaları sizin için mükemmel.",
+      "sophisticated": "Sofistike ve lüks kokulara çekiliyorsunuz. Zengin ve karmaşık notalar sizin tarzınızı yansıtıyor.",
+      "warm": "Sıcak ve rahatlatıcı kokulardan hoşlanıyorsunuz. Baharatlı ve odunsu notalar size hitap ediyor.",
+      "adventurous": "Macera dolu ve dinamik kokular arıyorsunuz. Cesur ve beklenmedik notalar sizin tarzınızı yansıtıyor.",
+      "natural": "Doğal ve toprakla bağlantılı kokulara çekiliyorsunuz. Yeşil ve odunsu notalar size hitap ediyor.",
+      "modern": "Modern ve yenilikçi kokulardan hoşlanıyorsunuz. Temiz ve minimalist notalar sizin için ideal."
+    }
+  },
   "shop": {
     "title": "Koleksiyonumuz",
     "subtitle": "Premium parfümlerimizin özenle seçilmiş koleksiyonunu keşfedin",

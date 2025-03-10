@@ -107,5 +107,6 @@ window.i18n = {
             value = value[k];
         }
         return value;
-    }
+    },
+    updateContent
 }; 

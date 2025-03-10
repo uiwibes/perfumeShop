@@ -32,13 +32,185 @@
       "description": "Universal & Versatile Fragrances"
     }
   },
+  "quiz": {
+    "questions": {
+      "feminine": {
+        "1": {
+          "text": "How would you describe your ideal evening?",
+          "options": {
+            "0": "A sophisticated dinner party",
+            "1": "A relaxing spa night",
+            "2": "Dancing the night away",
+            "3": "Reading by candlelight"
+          }
+        },
+        "2": {
+          "text": "Which environment makes you feel most at peace?",
+          "options": {
+            "0": "A blooming garden",
+            "1": "A beachside retreat",
+            "2": "A luxury boutique",
+            "3": "A cozy café"
+          }
+        },
+        "3": {
+          "text": "What's your preferred style aesthetic?",
+          "options": {
+            "0": "Classic and timeless",
+            "1": "Bold and dramatic",
+            "2": "Soft and romantic",
+            "3": "Modern minimalist"
+          }
+        },
+        "4": {
+          "text": "What's your favorite season?",
+          "options": {
+            "0": "Spring with blooming flowers",
+            "1": "Summer by the beach",
+            "2": "Cozy autumn evenings",
+            "3": "Elegant winter nights"
+          }
+        },
+        "5": {
+          "text": "What's your preferred accessory style?",
+          "options": {
+            "0": "Delicate pearls",
+            "1": "Colorful statement pieces",
+            "2": "Vintage-inspired jewelry",
+            "3": "Minimalist designs"
+          }
+        }
+      },
+      "masculine": {
+        "1": {
+          "text": "What's your ideal weekend activity?",
+          "options": {
+            "0": "Adventure sports",
+            "1": "Business networking",
+            "2": "Forest hiking",
+            "3": "Urban exploration"
+          }
+        },
+        "2": {
+          "text": "Which environment inspires you most?",
+          "options": {
+            "0": "A modern city skyline",
+            "1": "Dense forest",
+            "2": "Luxury car showroom",
+            "3": "Mountain summit"
+          }
+        },
+        "3": {
+          "text": "What's your preferred clothing style?",
+          "options": {
+            "0": "Classic suit",
+            "1": "Casual sportswear",
+            "2": "Smart casual",
+            "3": "Vintage-inspired"
+          }
+        },
+        "4": {
+          "text": "What's your favorite drink?",
+          "options": {
+            "0": "Single malt whiskey",
+            "1": "Craft cocktail",
+            "2": "Cold beer",
+            "3": "Espresso"
+          }
+        },
+        "5": {
+          "text": "What car style do you prefer?",
+          "options": {
+            "0": "Luxury sedan",
+            "1": "Sports car",
+            "2": "SUV",
+            "3": "Classic vintage"
+          }
+        }
+      },
+      "neutral": {
+        "1": {
+          "text": "Which natural environment do you feel most comfortable in?",
+          "options": {
+            "0": "Beach",
+            "1": "Forest",
+            "2": "Mountains",
+            "3": "City park"
+          }
+        },
+        "2": {
+          "text": "What's your preferred color palette?",
+          "options": {
+            "0": "Neutrals and earth tones",
+            "1": "Vibrant and bright colors",
+            "2": "Pastel tones",
+            "3": "Monochrome"
+          }
+        },
+        "3": {
+          "text": "What do you prefer to do in your free time?",
+          "options": {
+            "0": "Reading books",
+            "1": "Hiking in nature",
+            "2": "Art and music",
+            "3": "Spending time with friends"
+          }
+        },
+        "4": {
+          "text": "Which fragrance family do you prefer?",
+          "options": {
+            "0": "Citrus and fresh",
+            "1": "Woody and spicy",
+            "2": "Floral and fruity",
+            "3": "Clean and light"
+          }
+        },
+        "5": {
+          "text": "How do you want your perfume to make you feel?",
+          "options": {
+            "0": "Relaxed and calm",
+            "1": "Energized and invigorated",
+            "2": "Sophisticated and elegant",
+            "3": "Mysterious and alluring"
+          }
+        }
+      }
+    }
+  },
+  "results": {
+    "personalityTitle": "Your Fragrance Personality",
+    "restart": "Start Again",
+    "title": "Your Perfect Match",
+    "subtitle": "Based on your unique preferences, we've selected these fragrances that perfectly match your personality.",
+    "loadingTitle": "Your Perfect Match",
+    "loadingMessage": "We're crafting your perfect fragrance recommendation...",
+    "keyNotes": "Key Notes",
+    "matchTypes": {
+      "perfect": "Perfect Match",
+      "alternative": "Great Alternative",
+      "complementary": "Complementary Choice"
+    },
+    "personalities": {
+      "elegant": "You seek elegance and sophistication. Classic and timeless fragrances reflect your style.",
+      "relaxed": "You are drawn to calming and soothing scents. Relaxing notes are perfect for you.",
+      "vibrant": "You enjoy lively and energetic fragrances. Eye-catching and cheerful perfumes appeal to you.",
+      "romantic": "You have a tendency toward romantic and emotional scents. Floral and sweet notes are ideal for you.",
+      "floral": "Floral scents reflect your style. Elegant and feminine notes appeal to you.",
+      "fresh": "You seek refreshing and invigorating scents. Citrus and marine notes are perfect for you.",
+      "sophisticated": "You are drawn to sophisticated and luxurious scents. Rich and complex notes reflect your style.",
+      "warm": "You enjoy warm and comforting scents. Spicy and woody notes appeal to you.",
+      "adventurous": "You seek adventurous and dynamic scents. Bold and unexpected notes reflect your style.",
+      "natural": "You are drawn to natural and earthy scents. Green and woody notes appeal to you.",
+      "modern": "You enjoy modern and innovative scents. Clean and minimalist notes are ideal for you."
+    }
+  },
   "shop": {
     "title": "Our Collection",
-    "subtitle": "Explore our curated selection of premium fragrances",
+    "subtitle": "Explore our carefully curated collection of premium fragrances",
     "categories": {
       "all": "All",
-      "feminine": "Feminine",
-      "masculine": "Masculine",
+      "feminine": "Women",
+      "masculine": "Men",
       "unisex": "Unisex"
     },
     "filters": {
@@ -51,7 +223,7 @@
       "clear": "Clear All"
     },
     "sort": {
-      "title": "Sort by",
+      "title": "Sort",
       "popularity": "Popularity",
       "newest": "Newest",
       "priceAsc": "Price: Low to High",
@@ -65,11 +237,11 @@
   "about": {
     "hero": {
       "title": "Our Story",
-      "subtitle": "Crafting exceptional fragrances since 2010"
+      "subtitle": "Creating exceptional fragrances since 2010"
     },
     "mission": {
       "title": "Our Mission",
-      "content": "At Alda Perfume, we believe that fragrance is a form of self-expression. Our mission is to create exceptional scents that capture emotions, memories, and aspirations. We are dedicated to crafting perfumes that not only smell exquisite but also tell a story and evoke feelings."
+      "content": "At Alda Perfume, we believe that fragrance is a form of self-expression. Our mission is to create exceptional scents that capture emotions, memories, and dreams. We are dedicated to producing perfumes that not only smell amazing but also tell a story and evoke feelings."
     },
     "values": {
       "title": "Our Values",
@@ -83,7 +255,7 @@
       },
       "innovation": {
         "title": "Innovation",
-        "description": "We constantly push boundaries to create unique and memorable fragrances."
+        "description": "We constantly push boundaries to create unique and memorable scents."
       }
     },
     "team": {
@@ -103,7 +275,7 @@
     },
     "info": {
       "title": "Contact Information",
-      "address": "123 Perfume Street, Fragrance City, FC 12345",
+      "address": "123 Perfume Street, Scent City, SC 12345",
       "phone": "+1 (555) 123-4567",
       "email": "info@aldaperfume.com",
       "hours": "Monday - Friday: 9am - 5pm"
