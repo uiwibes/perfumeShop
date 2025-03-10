@@ -10,7 +10,7 @@ let translations = {};
 // Load translations for the current language
 async function loadTranslations() {
     try {
-        const response = await fetch(`/translations/${currentLanguage}.json`);
+        const response = await fetch(`translations/${currentLanguage}.json`);
         translations = await response.json();
         document.documentElement.lang = currentLanguage;
         updateContent();

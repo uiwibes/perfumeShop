@@ -330,7 +330,7 @@ const questions = {
             ]
         }
     ],
-    "it doesn't matter": [
+    "neutral": [
         {
             id: 1,
             text: "What attracts you most in a scent?",
@@ -650,9 +650,10 @@ function handleAnswer(personality) {
 function showQuestion() {
     if (!selectedGender) {
         console.error('Gender not selected');
+        alert('Gender not selected')
         return;
     }
-
+    
     const genderQuestions = questions[selectedGender];
     
     if (currentQuestion >= genderQuestions.length) {
@@ -678,7 +679,7 @@ function showQuestion() {
                     </svg>
                 </button>
             </div>
-            <div class="grid grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 ${question.options.map((option, index) => `
                     <button class="option-button group relative" data-personality="${option.personality}">
                         <div class="overflow-hidden rounded-lg mb-3">
@@ -849,4 +850,65 @@ function showResults() {
         perfumeResults.innerHTML = resultsHTML;
         resultsSection.scrollIntoView({ behavior: 'smooth' });
     }, 2000); // 2-second delay to show loading animation
+    
 }
+     // Mobile Menu Functionality
+     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+     const closeMenuBtn = document.getElementById('closeMenu');
+     const mobileMenu = document.getElementById('mobileMenu');
+     const mainNav = document.getElementById('mainNav');
+
+     // Function to toggle menu
+     function toggleMenu(show) {
+         if (show) {
+             mobileMenu.classList.add('active');
+         } else {
+             mobileMenu.classList.remove('active');
+         }
+     }
+
+     // Handle scroll for navigation
+     let lastScroll = 0;
+     window.addEventListener('scroll', () => {
+         const currentScroll = window.pageYOffset;
+         
+         if (currentScroll <= 0) {
+             mainNav.classList.remove('fixed');
+             mainNav.classList.remove('shadow-md');
+         } else {
+             mainNav.classList.add('fixed');
+             mainNav.classList.add('shadow-md');
+         }
+         
+         lastScroll = currentScroll;
+     });
+
+     mobileMenuBtn.addEventListener('click', () => {
+         toggleMenu(true);
+     });
+
+     closeMenuBtn.addEventListener('click', () => {
+         toggleMenu(false);
+     });
+
+     // Close menu when clicking outside
+     document.addEventListener('click', (e) => {
+         if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+             toggleMenu(false);
+         }
+     });
+
+     // Add event listener for mobile language selector
+     document.addEventListener('DOMContentLoaded', () => {
+         const mobileLanguageSelector = document.getElementById('mobileLanguageSelector');
+         if (mobileLanguageSelector) {
+             mobileLanguageSelector.addEventListener('change', (e) => {
+                 window.i18n.switchLanguage(e.target.value);
+                 // Also update the desktop selector
+                 const desktopSelector = document.getElementById('languageSelector');
+                 if (desktopSelector) {
+                     desktopSelector.value = e.target.value;
+                 }
+             });
+         }
+     });
