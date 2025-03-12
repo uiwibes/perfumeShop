@@ -1,0 +1,12 @@
+{
+  "name": "perfume-shop",
+  "version": "1.0.0",
+  "description": "Perfume shop website",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./css/input.css -o ./css/style.css",
+    "watch:css": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
