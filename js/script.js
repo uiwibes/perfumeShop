@@ -684,7 +684,7 @@ function showQuestion() {
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 ${question.options.map((option, index) => `
-                    <button class="option-button group relative" data-personality="${option.personality}">
+                    <button class="option-button group bg-header relative" data-personality="${option.personality}">
                         <div class="overflow-hidden rounded-lg mb-3">
                             <img src="${option.image}" 
                                  alt="${option.text}" 
@@ -833,15 +833,14 @@ function showResults() {
         // Display recommendations
         const resultsHTML = `
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-800" data-i18n="results.title">${titleText}</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="results.subtitle">${subtitleText}</p>
+                <p class="text-dark-bg max-w-2xl mx-auto">Based on your unique preferences, we've selected these fragrances that perfectly match your personality.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 ${recommendations.map(rec => `
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="bg-[#e2e2e2] rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                         <div class="relative">
                             <img src="${rec.image}" alt="${rec.name}" class="w-full h-64 object-cover">
-                            <div class="absolute top-4 right-4 ${rec.matchClass} text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                            <div class="absolute top-4 right-4 bg-header text-dark-text px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                                 ${rec.match}
                             </div>
                         </div>

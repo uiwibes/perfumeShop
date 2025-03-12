@@ -185,3 +185,12 @@ button {
     height: 100vh;
     width: 100%;
 }
+.text-dark-text{
+    color: var(--dark-bg);
+  }
+.text-dark-bg{
+    color: var(--dark-text);
+  }
+  .bg-header{
+    background-color: #cbc7c7;
+  }
