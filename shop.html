@@ -137,7 +137,7 @@
         /* Language selector styles */
         .language-selector {
             position: relative;
-            display: inline-block;
+            /* display: inline-block; */
         }
         
         .language-selector select {
@@ -159,6 +159,81 @@
             pointer-events: none;
             font-size: 0.75rem;
         }
+
+        /* Responsive styles for category tabs */
+        @media (max-width: 768px) {
+            .category-tabs-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE and Edge */
+                padding-bottom: 10px;
+                margin-left: -1rem;
+                margin-right: -1rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                scroll-snap-type: x mandatory;
+                display: flex; /* Ensure flex display for scrolling */
+            }
+            
+            .category-tabs-container::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Opera */
+            }
+            
+            .category-tabs-wrapper {
+                display: inline-flex;
+                min-width: min-content;
+                padding-bottom: 5px;
+                flex-wrap: nowrap; /* Prevent wrapping */
+                width: auto; /* Allow content to determine width */
+            }
+            
+            .category-tab {
+                scroll-snap-align: start;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+        }
+
+        /* Responsive styles for filter buttons */
+        @media (max-width: 640px) {
+            .filter-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+            
+            .filter-group {
+                margin-bottom: 1.5rem;
+            }
+            
+            .filter-buttons-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE and Edge */
+                margin-left: -1rem;
+                margin-right: -1rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-bottom: 5px;
+                scroll-snap-type: x proximity;
+                display: flex; /* Ensure flex display for scrolling */
+            }
+            
+            .filter-buttons-container::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Opera */
+            }
+            
+            .filter-buttons-wrapper {
+                display: inline-flex;
+                min-width: min-content;
+                flex-wrap: nowrap; /* Prevent wrapping */
+                width: auto; /* Allow content to determine width */
+                justify-content: flex-start !important; /* Override center alignment on mobile */
+            }
+        }
     </style>
 </head>
 <body class="bg-white font-montserrat">
@@ -178,7 +253,7 @@
                 </div>
                 <div class="flex items-center space-x-6">
                     <!-- Language Selector -->
-                    <div class="language-selector text-gray-600">
+                    <div class="language-selector text-gray-600 hidden md:block">
                         <select id="languageSelector" class="text-gray-600 hover:text-amber-800 transition-colors">
                             <option value="en" data-i18n="languageSelector.en">English</option>
                             <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
@@ -203,7 +278,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
             <div class="p-6">
                 <button id="closeMenu" class="absolute top-4 right-4 text-gray-600 hover:text-amber-800" aria-label="Close menu" data-i18n-aria-label="navigation.closeMenu">
                     <i class="fas fa-times text-xl"></i>
@@ -229,104 +304,112 @@
     <header class="hero-pattern">
         <div class="container mx-auto px-4 py-16 text-center pt-28">
             <div class="hero-content">
-                <h1 class="text-5xl md:text-6xl font-cormorant font-bold text-gray-900 mb-4" data-i18n="shop.hero.title">Discover Your Signature Scent</h1>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed" data-i18n="shop.hero.subtitle">Explore our curated collection of luxury perfumes, each crafted to evoke emotion and leave a lasting impression.</p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-cormorant font-bold text-gray-900 mb-4" data-i18n="shop.hero.title">Discover Your Signature Scent</h1>
+                <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed" data-i18n="shop.hero.subtitle">Explore our curated collection of luxury perfumes, each crafted to evoke emotion and leave a lasting impression.</p>
                 <div class="mt-8 flex justify-center space-x-4">
-                    <div class="w-16 h-0.5 bg-amber-800 opacity-30"></div>
-                    <div class="w-16 h-0.5 bg-amber-800"></div>
-                    <div class="w-16 h-0.5 bg-amber-800 opacity-30"></div>
+                    <div class="w-12 md:w-16 h-0.5 bg-amber-800 opacity-30"></div>
+                    <div class="w-12 md:w-16 h-0.5 bg-amber-800"></div>
+                    <div class="w-12 md:w-16 h-0.5 bg-amber-800 opacity-30"></div>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12">
+    <main class="container mx-auto px-4 py-8 md:py-12">
         <!-- Category Tabs -->
-        <div class="flex justify-center space-x-12 mb-16">
-            <button class="category-tab active font-cormorant text-xl tracking-wide border-b-2 border-transparent px-2 py-1 transition-all" data-category="all" data-i18n="shop.categories.all">
-                Collections
-            </button>
-            <button class="category-tab font-cormorant text-xl tracking-wide border-b-2 border-transparent px-2 py-1 transition-all" data-category="scent" data-i18n="shop.categories.scent">
-                Scent
-            </button>
-            <button class="category-tab font-cormorant text-xl tracking-wide border-b-2 border-transparent px-2 py-1 transition-all" data-category="season" data-i18n="shop.categories.season">
-                Season
-            </button>
-            <button class="category-tab font-cormorant text-xl tracking-wide border-b-2 border-transparent px-2 py-1 transition-all" data-category="occasion" data-i18n="shop.categories.occasion">
-                Occasion
-            </button>
+        <div class="category-tabs-container mb-8 md:mb-16">
+            <div class="category-tabs-wrapper flex justify-start md:justify-center space-x-4 md:space-x-12">
+                <button class="category-tab active font-cormorant text-lg md:text-xl tracking-wide border-b-2 border-transparent px-2 py-1 transition-all whitespace-nowrap" data-category="all" data-i18n="shop.categories.all">
+                    Collections
+                </button>
+                <button class="category-tab font-cormorant text-lg md:text-xl tracking-wide border-b-2 border-transparent px-2 py-1 transition-all whitespace-nowrap" data-category="scent" data-i18n="shop.categories.scent">
+                    Scent
+                </button>
+                <button class="category-tab font-cormorant text-lg md:text-xl tracking-wide border-b-2 border-transparent px-2 py-1 transition-all whitespace-nowrap" data-category="season" data-i18n="shop.categories.season">
+                    Season
+                </button>
+                <button class="category-tab font-cormorant text-lg md:text-xl tracking-wide border-b-2 border-transparent px-2 py-1 transition-all whitespace-nowrap" data-category="occasion" data-i18n="shop.categories.occasion">
+                    Occasion
+                </button>
+            </div>
         </div>
 
         <!-- Filters -->
-        <div class="filters mb-12">
+        <div class="filters mb-8 md:mb-12">
             <!-- Scent Filters -->
             <div class="filter-group" id="scentFilters">
-                <h3 class="font-cormorant text-2xl mb-6 text-center" data-i18n="shop.filters.scentTitle">Choose Your Scent Family</h3>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Floral">
-                        <i class="fas fa-flower mr-2"></i><span data-i18n="shop.filters.scent.floral">Floral</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Woody">
-                        <i class="fas fa-tree mr-2"></i><span data-i18n="shop.filters.scent.woody">Woody</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Oriental">
-                        <i class="fas fa-moon mr-2"></i><span data-i18n="shop.filters.scent.oriental">Oriental</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Fresh">
-                        <i class="fas fa-wind mr-2"></i><span data-i18n="shop.filters.scent.fresh">Fresh</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Citrus">
-                        <i class="fas fa-lemon mr-2"></i><span data-i18n="shop.filters.scent.citrus">Citrus</span>
-                    </button>
+                <h3 class="font-cormorant text-xl md:text-2xl mb-4 md:mb-6 text-center" data-i18n="shop.filters.scentTitle">Choose Your Scent Family</h3>
+                <div class="filter-buttons-container">
+                    <div class="filter-buttons-wrapper flex justify-center gap-2 md:gap-4">
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Floral">
+                            <i class="fas fa-flower mr-2"></i><span data-i18n="shop.filters.scent.floral">Floral</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Woody">
+                            <i class="fas fa-tree mr-2"></i><span data-i18n="shop.filters.scent.woody">Woody</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Oriental">
+                            <i class="fas fa-moon mr-2"></i><span data-i18n="shop.filters.scent.oriental">Oriental</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Fresh">
+                            <i class="fas fa-wind mr-2"></i><span data-i18n="shop.filters.scent.fresh">Fresh</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Citrus">
+                            <i class="fas fa-lemon mr-2"></i><span data-i18n="shop.filters.scent.citrus">Citrus</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <!-- Season Filters -->
             <div class="filter-group hidden" id="seasonFilters">
-                <h3 class="font-cormorant text-2xl mb-6 text-center" data-i18n="shop.filters.seasonTitle">Select Your Season</h3>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Spring">
-                        <i class="fas fa-seedling mr-2"></i><span data-i18n="shop.filters.season.spring">Spring</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Summer">
-                        <i class="fas fa-sun mr-2"></i><span data-i18n="shop.filters.season.summer">Summer</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Autumn">
-                        <i class="fas fa-leaf mr-2"></i><span data-i18n="shop.filters.season.autumn">Autumn</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Winter">
-                        <i class="fas fa-snowflake mr-2"></i><span data-i18n="shop.filters.season.winter">Winter</span>
-                    </button>
+                <h3 class="font-cormorant text-xl md:text-2xl mb-4 md:mb-6 text-center" data-i18n="shop.filters.seasonTitle">Select Your Season</h3>
+                <div class="filter-buttons-container">
+                    <div class="filter-buttons-wrapper flex justify-center gap-2 md:gap-4">
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Spring">
+                            <i class="fas fa-seedling mr-2"></i><span data-i18n="shop.filters.season.spring">Spring</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Summer">
+                            <i class="fas fa-sun mr-2"></i><span data-i18n="shop.filters.season.summer">Summer</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Autumn">
+                            <i class="fas fa-leaf mr-2"></i><span data-i18n="shop.filters.season.autumn">Autumn</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Winter">
+                            <i class="fas fa-snowflake mr-2"></i><span data-i18n="shop.filters.season.winter">Winter</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <!-- Occasion Filters -->
             <div class="filter-group hidden" id="occasionFilters">
-                <h3 class="font-cormorant text-2xl mb-6 text-center" data-i18n="shop.filters.occasionTitle">Perfect For Every Moment</h3>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Daily Wear">
-                        <i class="fas fa-sun mr-2"></i><span data-i18n="shop.filters.occasion.daily">Daily Wear</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Formal Events">
-                        <i class="fas fa-glass-cheers mr-2"></i><span data-i18n="shop.filters.occasion.formal">Formal Events</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Romantic Date">
-                        <i class="fas fa-heart mr-2"></i><span data-i18n="shop.filters.occasion.romantic">Romantic Date</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Sports & Active">
-                        <i class="fas fa-running mr-2"></i><span data-i18n="shop.filters.occasion.sports">Sports & Active</span>
-                    </button>
-                    <button class="filter-button px-6 py-3 rounded-full border-2 transition-all" data-filter="Evening">
-                        <i class="fas fa-moon mr-2"></i><span data-i18n="shop.filters.occasion.evening">Evening</span>
-                    </button>
+                <h3 class="font-cormorant text-xl md:text-2xl mb-4 md:mb-6 text-center" data-i18n="shop.filters.occasionTitle">Perfect For Every Moment</h3>
+                <div class="filter-buttons-container">
+                    <div class="filter-buttons-wrapper flex justify-center gap-2 md:gap-4">
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Daily Wear">
+                            <i class="fas fa-sun mr-2"></i><span data-i18n="shop.filters.occasion.daily">Daily Wear</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Formal Events">
+                            <i class="fas fa-glass-cheers mr-2"></i><span data-i18n="shop.filters.occasion.formal">Formal Events</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Romantic Date">
+                            <i class="fas fa-heart mr-2"></i><span data-i18n="shop.filters.occasion.romantic">Romantic Date</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Sports & Active">
+                            <i class="fas fa-running mr-2"></i><span data-i18n="shop.filters.occasion.sports">Sports & Active</span>
+                        </button>
+                        <button class="filter-button px-4 py-2 md:px-6 md:py-3 rounded-full border-2 transition-all text-sm md:text-base" data-filter="Evening">
+                            <i class="fas fa-moon mr-2"></i><span data-i18n="shop.filters.occasion.evening">Evening</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Products Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="productsGrid">
-            <!-- Product cards will be dynamically inserted here -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12" id="productsGrid">
+            <!-- Products will be dynamically inserted here -->
         </div>
     </main>
 
@@ -419,24 +502,24 @@
     </script>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
+    <footer class="bg-gray-900 text-white py-12 md:py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                 <div>
-                    <h3 class="text-xl font-cormorant font-bold mb-6" data-i18n="footer.brand">Alda Perfume</h3>
+                    <h3 class="text-xl font-cormorant font-bold mb-4 md:mb-6" data-i18n="footer.brand">Alda Perfume</h3>
                     <p class="text-gray-400" data-i18n="footer.tagline">Crafting your perfect scent story</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-cormorant font-bold mb-6" data-i18n="footer.quickLinks">Quick Links</h4>
-                    <ul class="space-y-4 text-gray-400">
+                    <h4 class="text-lg font-cormorant font-bold mb-4 md:mb-6" data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul class="space-y-3 md:space-y-4 text-gray-400">
                         <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.collections">Collections</a></li>
                         <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.findScent">Find Your Scent</a></li>
                         <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.about">About Us</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-cormorant font-bold mb-6" data-i18n="footer.contact">Contact</h4>
-                    <ul class="space-y-4 text-gray-400">
+                    <h4 class="text-lg font-cormorant font-bold mb-4 md:mb-6" data-i18n="footer.contact">Contact</h4>
+                    <ul class="space-y-3 md:space-y-4 text-gray-400">
                         <li><span data-i18n="footer.contactInfo.email">Email:</span> contact@aldaperfume.com</li>
                         <li><span data-i18n="footer.contactInfo.phone">Phone:</span> +1 (555) 123-4567</li>
                     </ul>
