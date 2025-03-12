@@ -1,12 +1,4 @@
-// Mobile Menu Toggle
-const mobileMenuButton = document.querySelector('.md\\:hidden.text-gray-600');
-const mobileMenu = document.querySelector('.md\\:hidden.hidden');
 
-if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-}
 
 // Shop Products Database
 const shopProducts = {
@@ -16,7 +8,7 @@ const shopProducts = {
             name: "Royal Rose",
             description: "A sophisticated blend of Bulgarian rose, jasmine, and vanilla",
             price: 129.99,
-            image: "images/photo-1557170334-a9632e77c6e4.jpg",
+            image: "images/fulvio-ciccolo-E6Ed669pvQQ-unsplash.jpg",
             notes: ["Rose", "Jasmine", "Vanilla"],
             categories: {
                 scent: ["Floral", "Oriental"],
@@ -29,7 +21,7 @@ const shopProducts = {
             name: "Ocean Breeze",
             description: "A fresh aquatic scent with coastal flowers",
             price: 89.99,
-            image: "images/photo-1557170334-a9632e77c6e4.jpg",
+            image: "images/fulvio-ciccolo-E6Ed669pvQQ-unsplash.jpg",
             notes: ["Sea Salt", "Water Lily", "Driftwood"],
             categories: {
                 scent: ["Fresh", "Citrus"],
@@ -42,7 +34,7 @@ const shopProducts = {
             name: "Mountain Summit",
             description: "An invigorating blend of woods and spices",
             price: 109.99,
-            image: "images/photo-1557170334-a9632e77c6e4.jpg",
+            image: "images/fulvio-ciccolo-E6Ed669pvQQ-unsplash.jpg",
             notes: ["Cedar", "Cardamom", "Leather"],
             categories: {
                 scent: ["Woody", "Oriental"],
@@ -55,7 +47,7 @@ const shopProducts = {
             name: "Citrus Burst",
             description: "An energetic mix of citrus and exotic flowers",
             price: 79.99,
-            image: "images/photo-1557170334-a9632e77c6e4.jpg",
+            image: "images/fulvio-ciccolo-E6Ed669pvQQ-unsplash.jpg",
             notes: ["Bergamot", "Orange Blossom", "Jasmine"],
             categories: {
                 scent: ["Citrus", "Fresh"],
@@ -68,7 +60,7 @@ const shopProducts = {
             name: "Pure Essence",
             description: "A clean, simple blend of essential elements",
             price: 94.99,
-            image: "images/photo-1557170334-a9632e77c6e4.jpg",
+            image: "images/fulvio-ciccolo-E6Ed669pvQQ-unsplash.jpg",
             notes: ["Cotton", "White Musk", "Minerals"],
             categories: {
                 scent: ["Fresh"],
@@ -95,7 +87,7 @@ const body = document.body;
 // Update hero pattern style
 const header = document.querySelector('header');
 if (header) {
-    header.style.backgroundImage = "linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&q=80')";
+    header.style.backgroundImage = "linear-gradient(to right, rgb(52 48 48 / 90%), rgb(55 51 51 / 80%)), url(images/photo-1615634260167-c8cdede054de.jpg)";
     header.style.backgroundSize = "cover";
     header.style.backgroundPosition = "center";
     header.style.position = "relative";
@@ -104,9 +96,9 @@ if (header) {
     // Add floating perfume bottles decoration
     header.insertAdjacentHTML('beforeend', `
         <div class="absolute inset-0 -z-10 overflow-hidden">
-            <img src="images/photo-1557170334-a9632e77c6e4.jpg" 
+            <img src="images/fulvio-ciccolo-E6Ed669pvQQ-unsplash.jpg" 
                  class="absolute -right-10 top-10 w-48 h-48 object-cover rounded-full opacity-20 transform rotate-12">
-            <img src="images/photo-1557170334-a9632e77c6e4.jpg" 
+            <img src="images/fulvio-ciccolo-E6Ed669pvQQ-unsplash.jpg" 
                  class="absolute -left-10 bottom-10 w-36 h-36 object-cover rounded-full opacity-20 transform -rotate-12">
         </div>
     `);
@@ -114,8 +106,8 @@ if (header) {
 
 // Add comparison modal HTML
 document.body.insertAdjacentHTML('beforeend', `
-    <div id="compareModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-6xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+    <div id="compareModal" class="fixed inset-0  bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="section-bg-dark rounded-xl p-8 max-w-6xl w-full mx-4 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-2xl font-cormorant font-bold" data-i18n="shop.compare.title">Compare Perfumes</h2>
                 <button id="closeCompare" class="text-gray-500 hover:text-gray-700">
@@ -131,8 +123,8 @@ document.body.insertAdjacentHTML('beforeend', `
 
 // Add quick view modal HTML
 document.body.insertAdjacentHTML('beforeend', `
-    <div id="quickViewModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto relative">
+    <div id="quickViewModal" class="fixed inset-0 section-bg-dark bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-header rounded-xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto relative">
             <button id="closeQuickView" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
                 <i class="fas fa-times text-xl"></i>
             </button>
@@ -246,7 +238,6 @@ function displayProducts(products) {
         <div class="product-card rounded-xl overflow-hidden transform transition-all duration-500 hover:scale-105 group">
             <div class="relative">
                 <img src="${product.image}" alt="${product.name}" class="w-full h-80 object-cover transform transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-500 group-hover:bg-opacity-40"></div>
                 <div class="absolute top-4 right-4">
                     <div class="golden-gradient text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm bg-opacity-30">
                         $${product.price}
@@ -254,11 +245,11 @@ function displayProducts(products) {
                 </div>
                 <button 
                     onclick="toggleCompare(${product.id})" 
-                    class="absolute top-4 left-4 ${compareList.has(product.id) ? 'bg-amber-800' : 'bg-white'} p-2 rounded-full shadow-lg hover:scale-110 transition-all duration-300"
+                    class="absolute top-4 left-4 bg-white p-2 rounded-full shadow-lg hover:scale-110 transition-all duration-300"
                     aria-label="${compareText}"
                     data-i18n-aria-label="shop.product.compare"
                 >
-                    <i class="fas fa-balance-scale ${compareList.has(product.id) ? 'text-white' : 'text-amber-800'}"></i>
+                    <i class="fas fa-balance-scale ${compareList.has(product.id) ? 'text-amber-800' : 'text-black'}"></i>
                 </button>
             </div>
             <div class="p-6 space-y-4">
@@ -286,7 +277,7 @@ function displayProducts(products) {
                             ${viewDetailsText}
                         </button>
                         <button 
-                            class="flex-1 ml-2 px-4 py-2 golden-gradient text-white rounded-full hover:opacity-90 transition-opacity duration-300"
+                            class="flex-1 ml-2 px-4 py-2 golden-gradient text-dark-text rounded-full hover:opacity-90 transition-opacity duration-300"
                             aria-label="${addToCartText}"
                             data-i18n="shop.product.addToCart"
                         >
@@ -358,7 +349,7 @@ function showComparison() {
     ).filter(Boolean);
     
     compareContent.innerHTML = productsToCompare.map(product => `
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center product-card">
             <div class="relative w-full h-64 mb-4">
                 <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover rounded-lg">
                 <button 
@@ -370,11 +361,11 @@ function showComparison() {
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <h3 class="text-xl font-cormorant font-bold mb-2">${product.name}</h3>
+            <h3 class="text-xl font-cormorant font-bold mb-2 text-dark-text">${product.name}</h3>
             <p class="text-amber-800 font-medium mb-4">$${product.price}</p>
-            <div class="w-full">
+            <div class="w-full px-6 pb-8">
                 <h4 class="font-medium mb-2" data-i18n="shop.filters.notes">${notesText}:</h4>
-                <ul class="list-disc pl-5 mb-4">
+                <ul class="list-disc flex gap-7 pl-5 mb-4">
                     ${product.notes.map(note => `<li>${note}</li>`).join('')}
                 </ul>
                 <h4 class="font-medium mb-2" data-i18n="shop.categories.all">${categoriesText}:</h4>
@@ -419,12 +410,12 @@ function showQuickView(productId) {
             <img src="${product.image}" alt="${product.name}" class="w-full h-96 object-cover rounded-lg">
         </div>
         <div class="flex flex-col">
-            <h2 class="text-3xl font-cormorant font-bold mb-2">${product.name}</h2>
+            <h2 class="text-3xl font-cormorant font-bold mb-2 text-dark-text">${product.name}</h2>
             <p class="text-2xl text-amber-800 font-medium mb-6">$${product.price}</p>
             <p class="text-gray-600 mb-6">${product.description}</p>
             
             <div class="mb-6">
-                <h3 class="font-medium mb-2" data-i18n="shop.filters.notes">${notesText}:</h3>
+                <h3 class="font-medium mb-2 text-dark-text" data-i18n="shop.filters.notes">${notesText}:</h3>
                 <div class="flex flex-wrap gap-2">
                     ${product.notes.map(note => 
                         `<span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm">${note}</span>`
@@ -433,7 +424,7 @@ function showQuickView(productId) {
             </div>
             
             <div class="mb-6">
-                <h3 class="font-medium mb-2" data-i18n="shop.quickView.perfectFor">${perfectForText}:</h3>
+                <h3 class="font-medium mb-2 text-dark-text" data-i18n="shop.quickView.perfectFor">${perfectForText}:</h3>
                 <div class="flex flex-wrap gap-2">
                     ${Object.entries(product.categories).flatMap(([category, values]) => 
                         values.map(value => 
@@ -444,7 +435,7 @@ function showQuickView(productId) {
             </div>
             
             <div class="mt-auto">
-                <button class="w-full px-6 py-3 golden-gradient text-white rounded-full hover:opacity-90 transition-opacity duration-300 flex items-center justify-center space-x-2" data-i18n="shop.product.addToCart">
+                <button class="w-full px-6 py-3 golden-gradient text-dark-text rounded-full hover:opacity-90 transition-opacity duration-300 flex items-center justify-center space-x-2" data-i18n="shop.product.addToCart">
                     <i class="fas fa-shopping-cart"></i>
                     <span>${addToCartText}</span>
                 </button>
@@ -498,3 +489,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initial display (will be replaced by the DOMContentLoaded event handler)
 // updateProductDisplay(); 
+ // Mobile Menu Functionality
+ const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+ const closeMenuBtn = document.getElementById('closeMenu');
+ const mobileMenu = document.getElementById('mobileMenu');
+ const mainNav = document.getElementById('mainNav');
+
+ // Function to toggle menu
+ function toggleMenu(show) {
+     if (show) {
+         mobileMenu.classList.add('active');
+     } else {
+         mobileMenu.classList.remove('active');
+     }
+ }
+
+ // Handle scroll for navigation
+ let lastScroll = 0;
+ window.addEventListener('scroll', () => {
+     const currentScroll = window.pageYOffset;
+     
+     if (currentScroll <= 0) {
+         mainNav.classList.remove('fixed');
+         mainNav.classList.remove('shadow-md');
+     } else {
+         mainNav.classList.add('fixed');
+         mainNav.classList.add('shadow-md');
+     }
+     
+     lastScroll = currentScroll;
+ });
+
+ mobileMenuBtn.addEventListener('click', () => {
+     toggleMenu(true);
+ });
+
+ closeMenuBtn.addEventListener('click', () => {
+     toggleMenu(false);
+ });
+
+ // Close menu when clicking outside
+ document.addEventListener('click', (e) => {
+     if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+         toggleMenu(false);
+     }
+ });
+
+ // Add event listener for mobile language selector
+ document.addEventListener('DOMContentLoaded', () => {
+     const mobileLanguageSelector = document.getElementById('mobileLanguageSelector');
+     if (mobileLanguageSelector) {
+         mobileLanguageSelector.addEventListener('change', (e) => {
+             window.i18n.switchLanguage(e.target.value);
+             // Also update the desktop selector
+             const desktopSelector = document.getElementById('languageSelector');
+             if (desktopSelector) {
+                 desktopSelector.value = e.target.value;
+             }
+         });
+     }
+ });
