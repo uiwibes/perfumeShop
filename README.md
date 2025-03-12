@@ -1,64 +1,63 @@
-# عطر آلدا - وبسایت فروشگاه عطر
+# Alda Perfume - Perfume Shop Website
 
-<div dir="rtl">
+## 📝 About the Project
+Alda Perfume Shop website is an online platform for purchasing perfumes, built using HTML, CSS (Tailwind), and JavaScript. This website features a modern and responsive design that provides an excellent user experience for customers.
 
-## 📝 درباره پروژه
-وبسایت فروشگاه عطر آلدا یک پلتفرم آنلاین برای خرید عطر است که با استفاده از HTML، CSS (Tailwind) و JavaScript ساخته شده است. این وبسایت دارای طراحی مدرن و واکنش‌گرا است که تجربه کاربری عالی را برای مشتریان فراهم می‌کند.
+## 🚀 Features
+- Modern and luxury design
+- Responsive user interface
+- Product filtering system
+- Quick product view
+- Shopping cart
+- Pages:
+  - Home page
+  - Shop
+  - About us
+  - Contact us
+  - Product page
+- Multi-language support (English and Turkish)
 
-## 🚀 ویژگی‌ها
-- طراحی مدرن و لوکس
-- رابط کاربری واکنش‌گرا
-- سیستم فیلترینگ محصولات
-- نمایش سریع محصول
-- سبد خرید
-- صفحات:
-  - صفحه اصلی
-  - فروشگاه
-  - درباره ما
-  - تماس با ما
-  - صفحه محصول
-
-## 🛠️ تکنولوژی‌های استفاده شده
+## 🛠️ Technologies Used
 - HTML5
 - Tailwind CSS
 - JavaScript
-- Font Awesome (برای آیکون‌ها)
+- Font Awesome (for icons)
 - Google Fonts
   - Cormorant Garamond
   - Montserrat
 
-## 🎨 سیستم طراحی
-### رنگ‌ها
+## 🎨 Design System
+### Colors
 ```css
 --primary-gold: #c2a575
 --primary-gold-light: #e2d5bc
 ```
 
-### تایپوگرافی
-- عناوین: Cormorant Garamond
-- متن: Montserrat
+### Typography
+- Headings: Cormorant Garamond
+- Text: Montserrat
 
-### کامپوننت‌ها
-- دکمه‌های اصلی و حاشیه‌دار
-- کارت‌های محصول
-- نوار ناوبری
-- فیلترها
-- مودال‌ها
+### Components
+- Primary and outline buttons
+- Product cards
+- Navigation bar
+- Filters
+- Modals
 
-## 📱 واکنش‌گرایی
-- دسکتاپ: 1440px
-- تبلت: 768px
-- موبایل: 375px
+## 📱 Responsiveness
+- Desktop: 1440px
+- Tablet: 768px
+- Mobile: 375px
 
-## 🚀 نحوه اجرا
-1. کلون کردن مخزن:
+## 🚀 How to Run
+1. Clone the repository:
 ```bash
 git clone https://github.com/your-username/alda-perfume.git
 ```
 
-2. باز کردن فایل index.html در مرورگر
+2. Open index.html in your browser
 
-## 📂 ساختار پروژه
+## 📂 Project Structure
 ```
 alda-perfume/
 ├── index.html
@@ -70,13 +69,17 @@ alda-perfume/
 │   └── style.css
 ├── js/
 │   ├── script.js
-│   └── shop.js
+│   ├── shop.js
+│   └── i18n.js
+├── translations/
+│   ├── en.json
+│   └── tr.json
 └── README.md
 ```
 
-## 🔧 پیکربندی
-### تنظیمات Tailwind
-برای شخصی‌سازی استایل‌ها، فایل style.css را ویرایش کنید:
+## 🔧 Configuration
+### Tailwind Settings
+To customize styles, edit the style.css file:
 ```css
 :root {
     --primary-gold: #c2a575;
@@ -84,19 +87,24 @@ alda-perfume/
 }
 ```
 
-## 🤝 مشارکت
-1. Fork کردن پروژه
-2. ایجاد برنچ برای ویژگی جدید
-3. Commit کردن تغییرات
-4. Push کردن به برنچ
-5. ایجاد Pull Request
+### Language Settings
+The website supports multiple languages. Language files are located in the `translations` directory:
+- English: `translations/en.json`
+- Turkish: `translations/tr.json`
 
-## 📄 مجوز
-این پروژه تحت مجوز MIT منتشر شده است.
+To add a new language, create a new JSON file in the translations directory following the same structure.
 
-## 📞 پشتیبانی
-برای پشتیبانی می‌توانید با ما تماس بگیرید:
-- ایمیل: contact@aldaperfume.com
-- تلفن: 4567-123 (555) 1+
+## 🤝 Contributing
+1. Fork the project
+2. Create a branch for a new feature
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-</div> 
+## 📄 License
+This project is licensed under the MIT License.
+
+## 📞 Support
+For support, you can contact us:
+- Email: contact@aldaperfume.com
+- Phone: +1 (555) 123-4567 
