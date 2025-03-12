@@ -10,7 +10,13 @@
     "contact": "Contact",
     "search": "Search",
     "account": "Account",
-    "cart": "Cart"
+    "cart": "Cart",
+    "menu": "Menu",
+    "closeMenu": "Close menu"
+  },
+  "languageSelector": {
+    "en": "English",
+    "tr": "Turkish"
   },
   "hero": {
     "title": "DISCOVER YOUR SIGNATURE SCENT",
@@ -205,33 +211,66 @@
     }
   },
   "shop": {
-    "title": "Our Collection",
-    "subtitle": "Explore our carefully curated collection of premium fragrances",
+    "pageTitle": "Luxury Perfume Shop",
+    "hero": {
+      "title": "Discover Your Signature Scent",
+      "subtitle": "Explore our curated collection of luxury perfumes, each crafted to evoke emotion and leave a lasting impression.",
+      "shopNow": "Shop Now",
+      "findFragrance": "Find Your Fragrance"
+    },
     "categories": {
-      "all": "All",
-      "feminine": "Women",
-      "masculine": "Men",
-      "unisex": "Unisex"
+      "title": "Browse by Category",
+      "all": "Collections",
+      "scent": "Scent",
+      "season": "Season",
+      "occasion": "Occasion"
     },
     "filters": {
-      "title": "Filters",
-      "price": "Price",
-      "brand": "Brand",
-      "notes": "Notes",
-      "intensity": "Intensity",
-      "apply": "Apply Filters",
-      "clear": "Clear All"
-    },
-    "sort": {
-      "title": "Sort",
-      "popularity": "Popularity",
-      "newest": "Newest",
-      "priceAsc": "Price: Low to High",
-      "priceDesc": "Price: High to Low"
+      "scentTitle": "Choose Your Scent Family",
+      "seasonTitle": "Select Your Season",
+      "occasionTitle": "Perfect For Every Moment",
+      "notes": "Key Notes",
+      "scent": {
+        "floral": "Floral",
+        "woody": "Woody",
+        "oriental": "Oriental",
+        "fresh": "Fresh",
+        "citrus": "Citrus"
+      },
+      "season": {
+        "spring": "Spring",
+        "summer": "Summer",
+        "autumn": "Autumn",
+        "winter": "Winter",
+        "allSeasons": "All Seasons"
+      },
+      "occasion": {
+        "daily": "Daily Wear",
+        "formal": "Formal Events",
+        "romantic": "Romantic Date",
+        "sports": "Sports & Active",
+        "evening": "Evening"
+      },
+      "rose": "Rose",
+      "jasmine": "Jasmine",
+      "vanilla": "Vanilla",
+      "cedar": "Cedar",
+      "seaSalt": "Sea Salt"
     },
     "product": {
       "addToCart": "Add to Cart",
-      "viewDetails": "View Details"
+      "viewDetails": "View Details",
+      "compare": "Compare",
+      "keyNotes": "Key Notes:"
+    },
+    "compare": {
+      "title": "Compare Perfumes",
+      "remove": "Remove",
+      "maxItems": "You can only compare up to {max} perfumes at a time"
+    },
+    "quickView": {
+      "title": "Quick View",
+      "perfectFor": "Perfect For"
     }
   },
   "about": {
@@ -251,11 +290,15 @@
       },
       "sustainability": {
         "title": "Sustainability",
-        "description": "We are committed to sustainable practices in our production process and packaging."
+        "description": "We are committed to sustainable practices in all aspects of our business, from sourcing to packaging."
       },
       "innovation": {
         "title": "Innovation",
-        "description": "We constantly push boundaries to create unique and memorable scents."
+        "description": "We constantly push the boundaries of perfumery to create unique and memorable fragrances."
+      },
+      "inclusivity": {
+        "title": "Inclusivity",
+        "description": "We believe that everyone should be able to find a scent that resonates with them, regardless of gender, age, or background."
       }
     },
     "team": {
@@ -275,22 +318,46 @@
     },
     "info": {
       "title": "Contact Information",
-      "address": "123 Perfume Street, Scent City, SC 12345",
+      "address": "123 Fragrance Lane, Perfume City, PC 12345",
       "phone": "+1 (555) 123-4567",
-      "email": "info@aldaperfume.com",
+      "email": "contact@aldaperfume.com",
       "hours": "Monday - Friday: 9am - 5pm"
     }
   },
   "footer": {
-    "newsletter": {
-      "title": "Subscribe to our newsletter",
-      "placeholder": "Your email address",
-      "button": "Subscribe"
+    "brand": "Alda Perfume",
+    "tagline": "Crafting your perfect scent story",
+    "quickLinks": "Quick Links",
+    "links": {
+      "collections": "Collections",
+      "findScent": "Find Your Scent",
+      "about": "About Us"
     },
-    "copyright": "© 2023 Alda Perfume. All rights reserved."
+    "contact": "Contact",
+    "contactInfo": {
+      "email": "Email:",
+      "phone": "Phone:"
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Subscribe to receive updates, access to exclusive deals, and more.",
+      "emailPlaceholder": "Enter your email",
+      "subscribe": "Subscribe"
+    },
+    "copyright": "© 2023 Alda Perfume. All rights reserved.",
+    "about": {
+      "title": "About Alda",
+      "description": "Luxury perfumes crafted with the finest ingredients to create unforgettable scent experiences."
+    },
+    "customerService": {
+      "title": "Customer Service",
+      "faq": "FAQ",
+      "shipping": "Shipping & Returns",
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy"
+    }
   },
-  "languageSelector": {
-    "en": "English",
-    "tr": "Turkish"
+  "common": {
+    "close": "Close"
   }
 } 

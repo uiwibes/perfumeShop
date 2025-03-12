@@ -10,7 +10,13 @@
     "contact": "İletişim",
     "search": "Ara",
     "account": "Hesabım",
-    "cart": "Sepet"
+    "cart": "Sepet",
+    "menu": "Menü",
+    "closeMenu": "Menüyü kapat"
+  },
+  "languageSelector": {
+    "en": "İngilizce",
+    "tr": "Türkçe"
   },
   "hero": {
     "title": "İMZA KOKUNUZU KEŞFEDİN",
@@ -205,33 +211,66 @@
     }
   },
   "shop": {
-    "title": "Koleksiyonumuz",
-    "subtitle": "Premium parfümlerimizin özenle seçilmiş koleksiyonunu keşfedin",
+    "pageTitle": "Lüks Parfüm Mağazası",
+    "hero": {
+      "title": "İmza Kokunuzu Keşfedin",
+      "subtitle": "Duyguları uyandırmak ve kalıcı bir izlenim bırakmak için özenle hazırlanmış lüks parfüm koleksiyonumuzu keşfedin.",
+      "shopNow": "Şimdi Alışveriş Yap",
+      "findFragrance": "Kokunuzu Bulun"
+    },
     "categories": {
-      "all": "Tümü",
-      "feminine": "Kadın",
-      "masculine": "Erkek",
-      "unisex": "Unisex"
+      "title": "Kategoriye Göre Göz At",
+      "all": "Koleksiyonlar",
+      "scent": "Koku",
+      "season": "Mevsim",
+      "occasion": "Özel Günler"
     },
     "filters": {
-      "title": "Filtreler",
-      "price": "Fiyat",
-      "brand": "Marka",
-      "notes": "Notlar",
-      "intensity": "Yoğunluk",
-      "apply": "Filtreleri Uygula",
-      "clear": "Tümünü Temizle"
-    },
-    "sort": {
-      "title": "Sırala",
-      "popularity": "Popülerlik",
-      "newest": "En Yeni",
-      "priceAsc": "Fiyat: Düşükten Yükseğe",
-      "priceDesc": "Fiyat: Yüksekten Düşüğe"
+      "scentTitle": "Koku Ailenizi Seçin",
+      "seasonTitle": "Mevsiminizi Seçin",
+      "occasionTitle": "Her An İçin Mükemmel",
+      "notes": "Ana Notalar",
+      "scent": {
+        "floral": "Çiçeksi",
+        "woody": "Odunsu",
+        "oriental": "Oryantal",
+        "fresh": "Ferah",
+        "citrus": "Narenciye"
+      },
+      "season": {
+        "spring": "İlkbahar",
+        "summer": "Yaz",
+        "autumn": "Sonbahar",
+        "winter": "Kış",
+        "allSeasons": "Tüm Mevsimler"
+      },
+      "occasion": {
+        "daily": "Günlük Kullanım",
+        "formal": "Resmi Etkinlikler",
+        "romantic": "Romantik Buluşma",
+        "sports": "Spor ve Aktif",
+        "evening": "Akşam"
+      },
+      "rose": "Gül",
+      "jasmine": "Yasemin",
+      "vanilla": "Vanilya",
+      "cedar": "Sedir",
+      "seaSalt": "Deniz Tuzu"
     },
     "product": {
       "addToCart": "Sepete Ekle",
-      "viewDetails": "Detayları Gör"
+      "viewDetails": "Detayları Gör",
+      "compare": "Karşılaştır",
+      "keyNotes": "Ana Notalar:"
+    },
+    "compare": {
+      "title": "Parfümleri Karşılaştır",
+      "remove": "Kaldır",
+      "maxItems": "En fazla {max} parfümü aynı anda karşılaştırabilirsiniz"
+    },
+    "quickView": {
+      "title": "Hızlı Bakış",
+      "perfectFor": "İdeal Kullanım"
     }
   },
   "about": {
@@ -251,11 +290,15 @@
       },
       "sustainability": {
         "title": "Sürdürülebilirlik",
-        "description": "Üretim sürecimizde ve ambalajlarımızda sürdürülebilir uygulamalara bağlıyız."
+        "description": "Kaynak temininden ambalaja kadar işimizin tüm yönlerinde sürdürülebilir uygulamalara bağlıyız."
       },
       "innovation": {
-        "title": "Yenilik",
-        "description": "Benzersiz ve akılda kalıcı kokular yaratmak için sürekli olarak sınırları zorluyoruz."
+        "title": "Yenilikçilik",
+        "description": "Benzersiz ve unutulmaz kokular yaratmak için parfümerinin sınırlarını sürekli zorluyoruz."
+      },
+      "inclusivity": {
+        "title": "Kapsayıcılık",
+        "description": "Cinsiyet, yaş veya geçmiş ne olursa olsun, herkesin kendisiyle rezonansa giren bir koku bulabilmesi gerektiğine inanıyoruz."
       }
     },
     "team": {
@@ -275,22 +318,46 @@
     },
     "info": {
       "title": "İletişim Bilgileri",
-      "address": "123 Parfüm Sokak, Koku Şehri, KŞ 12345",
-      "phone": "+90 (555) 123 45 67",
-      "email": "info@aldaperfume.com",
-      "hours": "Pazartesi - Cuma: 09:00 - 17:00"
+      "address": "123 Koku Sokak, Parfüm Şehri, PC 12345",
+      "phone": "+1 (555) 123-4567",
+      "email": "contact@aldaperfume.com",
+      "hours": "Pazartesi - Cuma: 9:00 - 17:00"
     }
   },
   "footer": {
-    "newsletter": {
-      "title": "Bültenimize abone olun",
-      "placeholder": "E-posta adresiniz",
-      "button": "Abone Ol"
+    "brand": "Alda Parfüm",
+    "tagline": "Mükemmel koku hikayenizi yaratıyoruz",
+    "quickLinks": "Hızlı Bağlantılar",
+    "links": {
+      "collections": "Koleksiyonlar",
+      "findScent": "Kokunuzu Bulun",
+      "about": "Hakkımızda"
     },
-    "copyright": "© 2023 Alda Perfume. Tüm hakları saklıdır."
+    "contact": "İletişim",
+    "contactInfo": {
+      "email": "E-posta:",
+      "phone": "Telefon:"
+    },
+    "newsletter": {
+      "title": "Bülten",
+      "description": "Güncellemeler, özel tekliflere erişim ve daha fazlası için abone olun.",
+      "emailPlaceholder": "E-posta adresinizi girin",
+      "subscribe": "Abone Ol"
+    },
+    "copyright": "© 2023 Alda Parfüm. Tüm hakları saklıdır.",
+    "about": {
+      "title": "Alda Hakkında",
+      "description": "Unutulmaz koku deneyimleri yaratmak için en kaliteli malzemelerle hazırlanan lüks parfümler."
+    },
+    "customerService": {
+      "title": "Müşteri Hizmetleri",
+      "faq": "SSS",
+      "shipping": "Kargo ve İadeler",
+      "terms": "Şartlar ve Koşullar",
+      "privacy": "Gizlilik Politikası"
+    }
   },
-  "languageSelector": {
-    "en": "İngilizce",
-    "tr": "Türkçe"
+  "common": {
+    "close": "Kapat"
   }
 } 

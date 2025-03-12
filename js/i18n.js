@@ -6,6 +6,7 @@
 // Default language is English
 let currentLanguage = localStorage.getItem('language') || 'en';
 let translations = {};
+let i18nReady = false;
 
 // Load translations for the current language
 async function loadTranslations() {
@@ -14,6 +15,10 @@ async function loadTranslations() {
         translations = await response.json();
         document.documentElement.lang = currentLanguage;
         updateContent();
+        i18nReady = true;
+        
+        // Dispatch an event when translations are loaded
+        document.dispatchEvent(new CustomEvent('i18n:loaded'));
     } catch (error) {
         console.error('Error loading translations:', error);
     }
@@ -25,6 +30,7 @@ function switchLanguage(lang) {
     
     currentLanguage = lang;
     localStorage.setItem('language', lang);
+    i18nReady = false;
     loadTranslations();
 }
 
@@ -72,10 +78,37 @@ function updateContent() {
         }
     });
     
+    // Update all elements with data-i18n-aria-label attribute
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(element => {
+        const key = element.getAttribute('data-i18n-aria-label');
+        const keys = key.split('.');
+        
+        // Navigate through the translation object
+        let value = translations;
+        for (const k of keys) {
+            if (value[k] === undefined) {
+                console.warn(`Translation key not found: ${key}`);
+                return;
+            }
+            value = value[k];
+        }
+        
+        // Update element aria-label
+        if (typeof value === 'string') {
+            element.setAttribute('aria-label', value);
+        }
+    });
+    
     // Update language selector
     const languageSelector = document.getElementById('languageSelector');
     if (languageSelector) {
         languageSelector.value = currentLanguage;
+    }
+    
+    // Update mobile language selector
+    const mobileLanguageSelector = document.getElementById('mobileLanguageSelector');
+    if (mobileLanguageSelector) {
+        mobileLanguageSelector.value = currentLanguage;
     }
 }
 
@@ -87,6 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const languageSelector = document.getElementById('languageSelector');
     if (languageSelector) {
         languageSelector.addEventListener('change', (e) => {
+            switchLanguage(e.target.value);
+        });
+    }
+    
+    // Add event listener to mobile language selector
+    const mobileLanguageSelector = document.getElementById('mobileLanguageSelector');
+    if (mobileLanguageSelector) {
+        mobileLanguageSelector.addEventListener('change', (e) => {
             switchLanguage(e.target.value);
         });
     }
@@ -108,5 +149,6 @@ window.i18n = {
         }
         return value;
     },
-    updateContent
+    updateContent,
+    isReady: () => i18nReady
 }; 
