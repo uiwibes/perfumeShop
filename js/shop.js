@@ -143,6 +143,7 @@ const compareContent = document.getElementById('compareContent');
 closeCompare.addEventListener('click', () => {
     compareModal.classList.add('hidden');
     compareModal.classList.remove('flex');
+    document.getElementById('mainNav').style.zIndex = '100';
 });
 
 // Add event listeners for quick view
@@ -153,6 +154,7 @@ const quickViewContent = document.getElementById('quickViewContent');
 closeQuickView.addEventListener('click', () => {
     quickViewModal.classList.add('hidden');
     quickViewModal.classList.remove('flex');
+    document.getElementById('mainNav').style.zIndex = '100';
 });
 
 // Event Listeners
@@ -389,7 +391,7 @@ function showComparison() {
     
     compareModal.classList.remove('hidden');
     compareModal.classList.add('flex');
-    
+    document.getElementById('mainNav').style.zIndex = '0';
     // Apply translations to dynamically created content
     if (window.i18n && window.i18n.updateContent) {
         window.i18n.updateContent();
@@ -404,7 +406,7 @@ function showQuickView(productId) {
     const addToCartText = window.i18n ? window.i18n.getTranslation('shop.product.addToCart') : 'Add to Cart';
     const notesText = window.i18n ? window.i18n.getTranslation('shop.filters.notes') : 'Notes';
     const perfectForText = window.i18n ? window.i18n.getTranslation('shop.quickView.perfectFor') : 'Perfect For';
-    
+    document.getElementById('mainNav').style.zIndex = '0';
     quickViewContent.innerHTML = `
         <div>
             <img src="${product.image}" alt="${product.name}" class="w-full h-96 object-cover rounded-lg">
