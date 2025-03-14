@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alda Perfume - Product Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #c2a575;
+            --primary-gold-light: #e2d5bc;
+        }
+        
+        .font-cormorant { font-family: 'Cormorant Garamond', serif; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        
+        .golden-gradient {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+        }
+        .golden-text-gradient {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-bg-light {
+            background: linear-gradient(to bottom, #ffffff 0%, #faf7f2 100%);
+        }
+        .section-bg-dark {
+            background: linear-gradient(to bottom, #faf7f2 0%, #f5efe5 100%);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: opacity 0.3s ease;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        .btn-outline {
+            border: 2px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background-color: var(--primary-gold);
+            color: white;
+        }
+
+        .thumbnail-active {
+            border: 2px solid var(--primary-gold);
+        }
+
+        .product-image-zoom {
+            transition: transform 0.3s ease;
+        }
+        .product-image-zoom:hover {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            color: white;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-white font-montserrat">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center space-x-2 text-xl tracking-widest">
+                    ALDA PERFUME
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link text-gray-600 hover:text-amber-800 transition-colors">Home</a>
+                    <a href="/shop.html" class="nav-link text-gray-600 hover:text-amber-800 transition-colors">Shop</a>
+                    <a href="#" class="nav-link text-gray-600 hover:text-amber-800 transition-colors">About</a>
+                    <a href="#" class="nav-link text-gray-600 hover:text-amber-800 transition-colors">Contact</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <button class="text-gray-600 hover:text-amber-800 transition-colors">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                    <button class="text-gray-600 hover:text-amber-800 transition-colors">
+                        <i class="fas fa-user text-xl"></i>
+                    </button>
+                    <button class="relative text-gray-600 hover:text-amber-800 transition-colors">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="section-bg-light pt-28 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center space-x-2 text-sm text-gray-600">
+                <a href="/" class="hover:text-amber-800">Home</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <a href="/shop.html" class="hover:text-amber-800">Shop</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <span class="text-amber-800">Moonlight Serenade</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Section -->
+    <section class="section-bg-light py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Product Images -->
+                <div class="space-y-6">
+                    <div class="relative overflow-hidden rounded-lg bg-white shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Moonlight Serenade Perfume" 
+                             class="w-full h-[600px] object-cover product-image-zoom">
+                        <div class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
+                            <i class="far fa-heart text-xl text-amber-800"></i>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="cursor-pointer rounded-lg overflow-hidden thumbnail-active">
+                            <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=300&q=80" 
+                                 alt="Thumbnail 1" 
+                                 class="w-full h-24 object-cover">
+                        </div>
+                        <div class="cursor-pointer rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=300&q=80" 
+                                 alt="Thumbnail 2" 
+                                 class="w-full h-24 object-cover">
+                        </div>
+                        <div class="cursor-pointer rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=300&q=80" 
+                                 alt="Thumbnail 3" 
+                                 class="w-full h-24 object-cover">
+                        </div>
+                        <div class="cursor-pointer rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=300&q=80" 
+                                 alt="Thumbnail 4" 
+                                 class="w-full h-24 object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="space-y-8">
+                    <div>
+                        <h1 class="text-4xl md:text-5xl font-cormorant font-bold mb-4">Moonlight Serenade</h1>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="text-2xl font-cormorant font-bold text-amber-800">$299.00</div>
+                            <div class="text-sm text-gray-500 line-through">$349.00</div>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-6">
+                            <div class="flex text-amber-800">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600">(42 reviews)</span>
+                        </div>
+                    </div>
+
+                    <div class="prose max-w-none">
+                        <p class="text-gray-600 leading-relaxed">
+                            A captivating blend of night-blooming jasmine, vanilla orchid, and warm amber, creating an enchanting aroma that evokes the mystery and romance of a moonlit garden. This sophisticated fragrance opens with fresh bergamot and develops into a heart of exotic florals, finally settling into a rich base of sandalwood and musk.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3">Key Notes</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tag">Jasmine</span>
+                                <span class="tag">Vanilla Orchid</span>
+                                <span class="tag">Amber</span>
+                                <span class="tag">Bergamot</span>
+                                <span class="tag">Sandalwood</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3">Perfect For</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tag">Evening Wear</span>
+                                <span class="tag">Special Occasions</span>
+                                <span class="tag">Romantic Dates</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3">Best Seasons</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tag">Fall</span>
+                                <span class="tag">Winter</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6 pt-6 border-t">
+                        <div class="flex items-center space-x-4">
+                            <label class="text-gray-700 font-semibold">Size:</label>
+                            <div class="flex space-x-2">
+                                <button class="px-4 py-2 border-2 border-amber-800 text-amber-800 rounded-full hover:bg-amber-800 hover:text-white transition">30ml</button>
+                                <button class="px-4 py-2 border-2 border-gray-300 rounded-full hover:border-amber-800 hover:text-amber-800 transition">50ml</button>
+                                <button class="px-4 py-2 border-2 border-gray-300 rounded-full hover:border-amber-800 hover:text-amber-800 transition">100ml</button>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <label class="text-gray-700 font-semibold">Quantity:</label>
+                            <div class="flex items-center border-2 border-gray-300 rounded-full">
+                                <button class="px-4 py-2 text-gray-600 hover:text-amber-800 transition">-</button>
+                                <span class="px-4 border-x-2 border-gray-300">1</span>
+                                <button class="px-4 py-2 text-gray-600 hover:text-amber-800 transition">+</button>
+                            </div>
+                        </div>
+
+                        <div class="flex space-x-4">
+                            <button class="btn-primary flex-1">Add to Cart</button>
+                            <button class="btn-outline">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 pt-6 border-t">
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <i class="fas fa-truck"></i>
+                            <span>Free shipping on orders over $100</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <i class="fas fa-undo"></i>
+                            <span>30-day return policy</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure checkout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Description Tabs -->
+    <section class="section-bg-dark py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex border-b border-gray-300">
+                    <button onclick="openTab('description')" class="px-8 py-4 text-amber-800 border-b-2 border-amber-800 font-semibold tab-button" data-tab="description">Description</button>
+                    <button onclick="openTab('ingredients')" class="px-8 py-4 text-gray-600 hover:text-amber-800 transition tab-button" data-tab="ingredients">Ingredients</button>
+                    <button onclick="openTab('reviews')" class="px-8 py-4 text-gray-600 hover:text-amber-800 transition tab-button" data-tab="reviews">Reviews (42)</button>
+                </div>
+                
+                <!-- Description Tab -->
+                <div id="description" class="tab-content py-8 prose max-w-none">
+                    <h3 class="text-2xl font-cormorant font-bold mb-4">About Moonlight Serenade</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Moonlight Serenade is a masterpiece of perfumery that captures the essence of a romantic evening under the stars. This enchanting fragrance is carefully crafted using the finest ingredients, blending traditional perfumery techniques with modern sophistication.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        The journey begins with a bright burst of Italian bergamot and pink pepper, creating an intriguing opening that draws you in. The heart reveals a luxurious bouquet of night-blooming jasmine and vanilla orchid, complemented by the warmth of amber. As the fragrance develops, it settles into a rich base of sandalwood, musk, and a hint of Madagascar vanilla, creating a lasting impression that lingers on the skin.
+                    </p>
+                    <h4 class="text-xl font-cormorant font-bold mb-4">The Experience</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        Each bottle of Moonlight Serenade is a work of art, housed in a hand-crafted crystal flacon that reflects the luminescent quality of moonlight. The fragrance evolves throughout the evening, revealing different facets of its complex composition as time passes, making it perfect for special occasions and memorable nights.
+                    </p>
+                </div>
+
+                <!-- Ingredients Tab -->
+                <div id="ingredients" class="tab-content hidden py-8 prose max-w-none">
+                    <h3 class="text-2xl font-cormorant font-bold mb-4">Ingredients</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-cormorant font-bold mb-3">Top Notes</h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                Italian Bergamot, Pink Pepper, Mandarin Orange
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-cormorant font-bold mb-3">Heart Notes</h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                Night-Blooming Jasmine, Vanilla Orchid, Bulgarian Rose, Iris
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-cormorant font-bold mb-3">Base Notes</h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                Warm Amber, Sandalwood, Madagascar Vanilla, White Musk
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <h4 class="text-xl font-cormorant font-bold mb-3">Additional Information</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>All ingredients are ethically sourced</li>
+                                <li>Cruelty-free and vegan-friendly</li>
+                                <li>Free from parabens and synthetic dyes</li>
+                                <li>Made with natural essential oils</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div id="reviews" class="tab-content hidden py-8 prose max-w-none">
+                    <div class="flex items-center justify-between mb-8">
+                        <h3 class="text-2xl font-cormorant font-bold">Customer Reviews</h3>
+                        <button onclick="openReviewModal()" class="btn-primary">Write a Review</button>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <!-- Review Summary -->
+                        <div class="bg-white rounded-lg p-6 shadow-sm">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <div class="text-3xl font-bold text-amber-800">4.5</div>
+                                    <div class="flex text-amber-800 mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <div class="text-gray-600">Based on 42 reviews</div>
+                                </div>
+                                <div class="space-y-2 flex-1 ml-12">
+                                    <div class="flex items-center">
+                                        <div class="text-sm text-gray-600 w-16">5 stars</div>
+                                        <div class="flex-1 h-2 bg-gray-200 rounded-full mx-2">
+                                            <div class="h-2 bg-amber-800 rounded-full" style="width: 75%"></div>
+                                        </div>
+                                        <div class="text-sm text-gray-600 w-12">32</div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="text-sm text-gray-600 w-16">4 stars</div>
+                                        <div class="flex-1 h-2 bg-gray-200 rounded-full mx-2">
+                                            <div class="h-2 bg-amber-800 rounded-full" style="width: 15%"></div>
+                                        </div>
+                                        <div class="text-sm text-gray-600 w-12">6</div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="text-sm text-gray-600 w-16">3 stars</div>
+                                        <div class="flex-1 h-2 bg-gray-200 rounded-full mx-2">
+                                            <div class="h-2 bg-amber-800 rounded-full" style="width: 7%"></div>
+                                        </div>
+                                        <div class="text-sm text-gray-600 w-12">3</div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="text-sm text-gray-600 w-16">2 stars</div>
+                                        <div class="flex-1 h-2 bg-gray-200 rounded-full mx-2">
+                                            <div class="h-2 bg-amber-800 rounded-full" style="width: 2%"></div>
+                                        </div>
+                                        <div class="text-sm text-gray-600 w-12">1</div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="text-sm text-gray-600 w-16">1 star</div>
+                                        <div class="flex-1 h-2 bg-gray-200 rounded-full mx-2">
+                                            <div class="h-2 bg-amber-800 rounded-full" style="width: 0%"></div>
+                                        </div>
+                                        <div class="text-sm text-gray-600 w-12">0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Individual Reviews -->
+                        <div class="space-y-6">
+                            <!-- Review 1 -->
+                            <div class="bg-white rounded-lg p-6 shadow-sm">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 font-semibold mr-4">
+                                            SE
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold">Sarah E.</div>
+                                            <div class="text-sm text-gray-500">Verified Purchaser</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">2 weeks ago</div>
+                                </div>
+                                <div class="flex text-amber-800 mb-2">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4 class="font-semibold mb-2">Absolutely enchanting!</h4>
+                                <p class="text-gray-600 mb-4">
+                                    This perfume is everything I hoped it would be and more. The scent is sophisticated and long-lasting, perfect for special evenings. The vanilla and jasmine notes are perfectly balanced, and the dry down is simply divine.
+                                </p>
+                                <div class="flex items-center space-x-4 text-sm text-gray-500">
+                                    <button class="flex items-center space-x-2">
+                                        <i class="far fa-thumbs-up"></i>
+                                        <span>Helpful (24)</span>
+                                    </button>
+                                    <button class="flex items-center space-x-2">
+                                        <i class="far fa-comment"></i>
+                                        <span>Reply</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Review 2 -->
+                            <div class="bg-white rounded-lg p-6 shadow-sm">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 font-semibold mr-4">
+                                            MK
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold">Michael K.</div>
+                                            <div class="text-sm text-gray-500">Verified Purchaser</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">1 month ago</div>
+                                </div>
+                                <div class="flex text-amber-800 mb-2">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <h4 class="font-semibold mb-2">Elegant but could last longer</h4>
+                                <p class="text-gray-600 mb-4">
+                                    The fragrance is beautiful and sophisticated, perfect for evening wear. My only wish is that it would last a bit longer. The initial scent is amazing but starts to fade after 4-5 hours.
+                                </p>
+                                <div class="flex items-center space-x-4 text-sm text-gray-500">
+                                    <button class="flex items-center space-x-2">
+                                        <i class="far fa-thumbs-up"></i>
+                                        <span>Helpful (16)</span>
+                                    </button>
+                                    <button class="flex items-center space-x-2">
+                                        <i class="far fa-comment"></i>
+                                        <span>Reply</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Load More Button -->
+                        <div class="text-center">
+                            <button class="btn-outline">Load More Reviews</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function openTab(tabName) {
+            // Hide all tab content
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.add('hidden'));
+            
+            // Show selected tab content
+            const selectedTab = document.getElementById(tabName);
+            selectedTab.classList.remove('hidden');
+            
+            // Update tab button styles
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                if (button.getAttribute('data-tab') === tabName) {
+                    button.classList.add('text-amber-800', 'border-b-2', 'border-amber-800');
+                    button.classList.remove('text-gray-600');
+                } else {
+                    button.classList.remove('text-amber-800', 'border-b-2', 'border-amber-800');
+                    button.classList.add('text-gray-600');
+                }
+            });
+        }
+
+        // Review System Functions
+        function openReviewModal() {
+            document.getElementById('reviewModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function setRating(rating) {
+            const stars = document.querySelectorAll('.rating-star');
+            const ratingInput = document.getElementById('ratingInput');
+            ratingInput.value = rating;
+            
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.remove('far');
+                    star.classList.add('fas');
+                } else {
+                    star.classList.remove('fas');
+                    star.classList.add('far');
+                }
+            });
+        }
+
+        function toggleUsageButton(button) {
+            button.classList.toggle('border-amber-800');
+            button.classList.toggle('text-amber-800');
+            button.classList.toggle('border-gray-300');
+        }
+
+        function handlePhotoUpload(input) {
+            const previewContainer = document.getElementById('photoPreview');
+            previewContainer.innerHTML = '';
+
+            if (input.files) {
+                Array.from(input.files).forEach((file, index) => {
+                    if (index < 3) { // Limit to 3 photos
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const preview = document.createElement('div');
+                            preview.className = 'relative w-24 h-24';
+                            preview.innerHTML = `
+                                <img src="${e.target.result}" class="w-full h-full object-cover rounded-lg">
+                                <button type="button" onclick="removePhoto(this)" class="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-md">
+                                    <i class="fas fa-times text-gray-500"></i>
+                                </button>
+                            `;
+                            previewContainer.appendChild(preview);
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        }
+
+        function removePhoto(button) {
+            button.parentElement.remove();
+        }
+
+        function submitReview(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const rating = document.getElementById('ratingInput').value;
+            const title = document.getElementById('reviewTitle').value;
+            const text = document.getElementById('reviewText').value;
+            
+            // Validation
+            if (!rating || !title || !text) {
+                alert('Please fill in all required fields (Rating, Title, and Review)');
+                return;
+            }
+
+            // Here you would typically send the data to your server
+            console.log('Review submitted:', { rating, title, text });
+            
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'fixed top-4 right-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md';
+            successMessage.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <p>Thank you for your review!</p>
+                </div>
+            `;
+            document.body.appendChild(successMessage);
+
+            // Remove success message after 3 seconds
+            setTimeout(() => {
+                successMessage.remove();
+            }, 3000);
+
+            // Close modal and reset form
+            closeReviewModal();
+            event.target.reset();
+            setRating(0);
+        }
+
+        // Initialize event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Usage experience buttons
+            const usageButtons = document.querySelectorAll('[data-usage]');
+            usageButtons.forEach(button => {
+                button.addEventListener('click', () => toggleUsageButton(button));
+            });
+
+            // Photo upload
+            const photoInput = document.getElementById('photoUpload');
+            photoInput.addEventListener('change', () => handlePhotoUpload(photoInput));
+
+            // Form submission
+            const reviewForm = document.getElementById('reviewForm');
+            reviewForm.addEventListener('submit', submitReview);
+        });
+    </script>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="p-6 space-y-6">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-2xl font-cormorant font-bold">Write a Review</h3>
+                    <button onclick="closeReviewModal()" class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <form id="reviewForm" class="space-y-6">
+                    <input type="hidden" id="ratingInput" value="0">
+                    
+                    <!-- Rating -->
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Rating <span class="text-red-500">*</span></label>
+                        <div class="flex space-x-2">
+                            <button type="button" class="rating-star text-2xl text-amber-800 far fa-star" onclick="setRating(1)"></button>
+                            <button type="button" class="rating-star text-2xl text-amber-800 far fa-star" onclick="setRating(2)"></button>
+                            <button type="button" class="rating-star text-2xl text-amber-800 far fa-star" onclick="setRating(3)"></button>
+                            <button type="button" class="rating-star text-2xl text-amber-800 far fa-star" onclick="setRating(4)"></button>
+                            <button type="button" class="rating-star text-2xl text-amber-800 far fa-star" onclick="setRating(5)"></button>
+                        </div>
+                    </div>
+
+                    <!-- Review Title -->
+                    <div>
+                        <label for="reviewTitle" class="block text-gray-700 font-semibold mb-2">Review Title <span class="text-red-500">*</span></label>
+                        <input type="text" id="reviewTitle" required class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-amber-800 focus:outline-none" placeholder="Summarize your experience">
+                    </div>
+
+                    <!-- Review Text -->
+                    <div>
+                        <label for="reviewText" class="block text-gray-700 font-semibold mb-2">Your Review <span class="text-red-500">*</span></label>
+                        <textarea id="reviewText" required rows="4" class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-amber-800 focus:outline-none resize-none" placeholder="Share your thoughts about the fragrance"></textarea>
+                    </div>
+
+                    <!-- Usage Experience -->
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">When did you use this fragrance?</label>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" data-usage="evening" class="px-4 py-2 border-2 border-gray-300 rounded-full hover:border-amber-800 hover:text-amber-800 transition">Evening Events</button>
+                            <button type="button" data-usage="daily" class="px-4 py-2 border-2 border-gray-300 rounded-full hover:border-amber-800 hover:text-amber-800 transition">Daily Wear</button>
+                            <button type="button" data-usage="special" class="px-4 py-2 border-2 border-gray-300 rounded-full hover:border-amber-800 hover:text-amber-800 transition">Special Occasion</button>
+                            <button type="button" data-usage="romantic" class="px-4 py-2 border-2 border-gray-300 rounded-full hover:border-amber-800 hover:text-amber-800 transition">Romantic Date</button>
+                        </div>
+                    </div>
+
+                    <!-- Scent Characteristics -->
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Scent Characteristics</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="long-lasting" class="w-4 h-4 text-amber-800">
+                                <label for="long-lasting" class="ml-2">Long-lasting</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="subtle" class="w-4 h-4 text-amber-800">
+                                <label for="subtle" class="ml-2">Subtle</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="intense" class="w-4 h-4 text-amber-800">
+                                <label for="intense" class="ml-2">Intense</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="fresh" class="w-4 h-4 text-amber-800">
+                                <label for="fresh" class="ml-2">Fresh</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="sweet" class="w-4 h-4 text-amber-800">
+                                <label for="sweet" class="ml-2">Sweet</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="woody" class="w-4 h-4 text-amber-800">
+                                <label for="woody" class="ml-2">Woody</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo Upload -->
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Add Photos (optional)</label>
+                        <div class="space-y-4">
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                                <input type="file" accept="image/*" class="hidden" id="photoUpload" multiple>
+                                <label for="photoUpload" class="cursor-pointer">
+                                    <i class="fas fa-camera text-2xl text-gray-400 mb-2"></i>
+                                    <p class="text-gray-500">Click to upload photos (max 3)</p>
+                                </label>
+                            </div>
+                            <div id="photoPreview" class="flex gap-4"></div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" onclick="closeReviewModal()" class="btn-outline">Cancel</button>
+                        <button type="submit" class="btn-primary">Submit Review</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <section class="section-bg-light py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-cormorant font-bold text-center mb-12">You May Also Like</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Related Product 1 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg bg-white shadow-lg mb-4">
+                        <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80" 
+                             alt="Related Product 1" 
+                             class="w-full h-[300px] object-cover transform transition duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
+                            <i class="far fa-heart text-amber-800"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-cormorant font-bold mb-2">Midnight Rose</h3>
+                    <p class="text-gray-600 mb-2">$249.00</p>
+                    <button class="w-full btn-outline text-sm">View Details</button>
+                </div>
+
+                <!-- Related Product 2 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg bg-white shadow-lg mb-4">
+                        <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80" 
+                             alt="Related Product 2" 
+                             class="w-full h-[300px] object-cover transform transition duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
+                            <i class="far fa-heart text-amber-800"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-cormorant font-bold mb-2">Golden Amber</h3>
+                    <p class="text-gray-600 mb-2">$279.00</p>
+                    <button class="w-full btn-outline text-sm">View Details</button>
+                </div>
+
+                <!-- Related Product 3 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg bg-white shadow-lg mb-4">
+                        <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80" 
+                             alt="Related Product 3" 
+                             class="w-full h-[300px] object-cover transform transition duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
+                            <i class="far fa-heart text-amber-800"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-cormorant font-bold mb-2">Velvet Orchid</h3>
+                    <p class="text-gray-600 mb-2">$299.00</p>
+                    <button class="w-full btn-outline text-sm">View Details</button>
+                </div>
+
+                <!-- Related Product 4 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg bg-white shadow-lg mb-4">
+                        <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80" 
+                             alt="Related Product 4" 
+                             class="w-full h-[300px] object-cover transform transition duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
+                            <i class="far fa-heart text-amber-800"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-cormorant font-bold mb-2">Ocean Breeze</h3>
+                    <p class="text-gray-600 mb-2">$259.00</p>
+                    <button class="w-full btn-outline text-sm">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-xl font-cormorant font-bold mb-6">Alda Perfume</h3>
+                    <p class="text-gray-400">Crafting your perfect scent story</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-cormorant font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Collections</a></li>
+                        <li><a href="#" class="hover:text-white transition">Find Your Scent</a></li>
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-cormorant font-bold mb-6">Contact</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li>Email: contact@aldaperfume.com</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

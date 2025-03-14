@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Alda Perfume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/i18n.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <style>
+        :root {
+            --primary-gold: #c2a575;
+            --primary-gold-light: #e2d5bc;
+        }
+        
+        .font-cormorant { font-family: 'Cormorant Garamond', serif; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        
+        .golden-gradient {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+        }
+        .golden-text-gradient {
+            background: linear-gradient(135deg, var(--primary-gold) 80%, var(--primary-gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-bg-light {
+            background: linear-gradient(to bottom, #ffffff 0%, #faf7f2 100%);
+        }
+        .section-bg-dark {
+            background: linear-gradient(to bottom, #faf7f2 0%, #f5efe5 100%);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: opacity 0.3s ease;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .form-input {
+            @apply w-full px-4 py-3 border rounded-md focus:outline-none transition-all duration-300;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-color: var(--primary-gold);
+            border-width: 1px;
+        }
+        .form-input:hover {
+            border-color: var(--primary-gold);
+            border-width: 1.5px;
+        }
+        .form-input:focus {
+            border-color: var(--primary-gold);
+            border-width: 2px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 0 1px var(--primary-gold-light);
+        }
+        
+        .form-label {
+            @apply block font-cormorant font-bold mb-2 text-lg;
+            color: var(--primary-gold);
+        }
+
+        .contact-form {
+            /* background-color: rgba(250, 247, 242, 0.5); */
+            background-color: antiquewhite;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(194, 165, 117, 0.1);
+        }
+
+        .contact-form-wrapper {
+            background: linear-gradient(135deg, rgba(194, 165, 117, 0.1) 0%, rgba(226, 213, 188, 0.1) 100%);
+            border-radius: 1rem;
+            padding: 2px;
+        }
+
+        .hero-section {
+            background-image: url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .hero-overlay {
+            display: block;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(194, 165, 117, 0.2);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px rgba(194, 165, 117, 0.1);
+        }
+
+        /* Language selector styles */
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language-selector select {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            padding-right: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .language-selector::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body class="bg-white font-montserrat">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center space-x-2 text-xl tracking-widest">
+                    ALDA PERFUME
+                </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.home">Home</a>
+                    <a href="/shop.html" class="nav-link text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.shop">Shop</a>
+                    <a href="/about.html" class="nav-link text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.about">About</a>
+                    <a href="/contact.html" class="nav-link text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.contact">Contact</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <!-- Language Selector -->
+                    <div class="language-selector text-gray-600">
+                        <select id="languageSelector" class="text-gray-600 hover:text-amber-800 transition-colors">
+                            <option value="en" data-i18n="languageSelector.en">English</option>
+                            <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
+                        </select>
+                    </div>
+                    <button class="text-gray-600 hover:text-amber-800 transition-colors" aria-label="Search">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                    <button class="text-gray-600 hover:text-amber-800 transition-colors" aria-label="Account">
+                        <i class="fas fa-user text-xl"></i>
+                    </button>
+                    <button class="relative text-gray-600 hover:text-amber-800 transition-colors" aria-label="Cart">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden text-gray-600 hover:text-amber-800 transition-colors" aria-label="Menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform md:hidden">
+            <div class="p-6">
+                <button id="closeMenu" class="absolute top-4 right-4 text-gray-600 hover:text-amber-800" aria-label="Close menu">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="mt-8 space-y-6">
+                    <a href="/" class="block text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.home">Home</a>
+                    <a href="/shop.html" class="block text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.shop">Shop</a>
+                    <a href="/about.html" class="block text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.about">About</a>
+                    <a href="/contact.html" class="block text-gray-600 hover:text-amber-800 transition-colors" data-i18n="navigation.contact">Contact</a>
+                    <!-- Mobile Language Selector -->
+                    <div class="language-selector text-gray-600 mt-4">
+                        <select id="mobileLanguageSelector" class="text-gray-600 hover:text-amber-800 transition-colors">
+                            <option value="en" data-i18n="languageSelector.en">English</option>
+                            <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-24 section-bg-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-cormorant font-bold mb-4" data-i18n="contact.title">Get in Touch</h1>
+                <p class="text-lg md:text-xl text-gray-600" data-i18n="contact.subtitle">We'd love to hear from you</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-16 md:py-24 section-bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2" data-i18n="contact.form.name">Your Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2" data-i18n="contact.form.email">Your Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2" data-i18n="contact.form.subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2" data-i18n="contact.form.message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 px-6 bg-amber-800 text-white rounded-md hover:bg-amber-700 transition-colors" data-i18n="contact.form.submit">Send Message</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-cormorant font-bold mb-4" data-i18n="contact.info.title">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-amber-800 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <p class="text-gray-600" data-i18n="contact.info.address">123 Perfume Street, Fragrance City, FC 12345</p>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="text-amber-800 mt-1">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <p class="text-gray-600" data-i18n="contact.info.phone">+1 (555) 123-4567</p>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="text-amber-800 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <p class="text-gray-600" data-i18n="contact.info.email">info@aldaperfume.com</p>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="text-amber-800 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <p class="text-gray-600" data-i18n="contact.info.hours">Monday - Friday: 9am - 5pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Map -->
+                    <div class="h-64 bg-gray-200 rounded-lg">
+                        <!-- Map would go here -->
+                        <div class="w-full h-full flex items-center justify-center text-gray-500">
+                            <p>Map Placeholder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-bg-dark py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-cormorant font-bold text-center mb-12">Frequently Asked Questions</h2>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <h3 class="text-xl font-cormorant font-bold mb-3">What are your shipping times?</h3>
+                        <p class="text-gray-600">
+                            We process orders within 1-2 business days. Standard shipping takes 3-5 business days within the US. International shipping times vary by location.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <h3 class="text-xl font-cormorant font-bold mb-3">Do you offer samples?</h3>
+                        <p class="text-gray-600">
+                            Yes! We offer sample sets of our fragrances. You can purchase a discovery set containing 5ml samples of our most popular scents.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <h3 class="text-xl font-cormorant font-bold mb-3">What is your return policy?</h3>
+                        <p class="text-gray-600">
+                            We offer a 30-day return policy for unopened products in their original packaging. Please contact our customer service team to initiate a return.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <h3 class="text-xl font-cormorant font-bold mb-3">Are your fragrances cruelty-free?</h3>
+                        <p class="text-gray-600">
+                            Yes, all our fragrances are cruelty-free and vegan. We're committed to ethical and sustainable practices in all aspects of our business.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-xl font-cormorant font-bold mb-6">Alda Perfume</h3>
+                    <p class="text-gray-400">Crafting your perfect scent story</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-cormorant font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Collections</a></li>
+                        <li><a href="#" class="hover:text-white transition">Find Your Scent</a></li>
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-cormorant font-bold mb-6">Contact</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li>Email: contact@aldaperfume.com</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to your server
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'fixed top-4 right-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md';
+            successMessage.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <p>Thank you for your message! We'll get back to you soon.</p>
+                </div>
+            `;
+            document.body.appendChild(successMessage);
+            
+            // Remove success message after 3 seconds
+            setTimeout(() => {
+                successMessage.remove();
+            }, 3000);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add event listener for mobile language selector
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileLanguageSelector = document.getElementById('mobileLanguageSelector');
+            if (mobileLanguageSelector) {
+                mobileLanguageSelector.addEventListener('change', (e) => {
+                    window.i18n.switchLanguage(e.target.value);
+                    // Also update the desktop selector
+                    const desktopSelector = document.getElementById('languageSelector');
+                    if (desktopSelector) {
+                        desktopSelector.value = e.target.value;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
