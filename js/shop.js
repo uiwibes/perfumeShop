@@ -235,11 +235,14 @@ function displayProducts(products) {
     const viewDetailsText = window.i18n ? window.i18n.getTranslation('shop.product.viewDetails') : 'View Details';
     const compareText = window.i18n ? window.i18n.getTranslation('shop.product.compare') : 'Compare';
     const keyNotesText = window.i18n ? window.i18n.getTranslation('shop.product.keyNotes') : 'Key Notes:';
-    
+    var href='/product.html'
+    if (window.location.host === "uiwibes.github.io") {
+        href = "/perfumeShop/product.html";
+      }
     productsGrid.innerHTML = products.map(product => `
         <div class="product-card rounded-xl overflow-hidden transform transition-all duration-500 hover:scale-105 group">
             <div class="relative">
-                <a href="/product.html">
+                <a href="${href}">
                 <img src="${product.image}" alt="${product.name}" class="w-full h-80 object-cover transform transition-transform duration-700 group-hover:scale-110">
                 </a>
                 <div class="absolute top-4 right-4">
