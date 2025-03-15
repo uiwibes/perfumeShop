@@ -152,7 +152,9 @@ color: var(--dark-text);
             border-radius: 9999px;
             transition: opacity 0.3s ease;
         }
-
+.scroll-nvisible::-webkit-scrollbar{
+    display: none;
+}
         .btn-primary:hover {
             opacity: 0.9;
         }
@@ -363,7 +365,7 @@ color: var(--dark-text);
     <section class="section-bg-dark py-16">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <div class="flex border-b border-gray-300">
+                <div class="flex border-b border-gray-300 overflow-x-scroll scroll-nvisible">
                     <button onclick="openTab('description')" class="px-8 py-4 text-amber-800 border-b-2 border-amber-800 font-semibold tab-button" data-tab="description">Description</button>
                     <button onclick="openTab('ingredients')" class="px-8 py-4 text-dark-bg hover:text-amber-800 transition tab-button" data-tab="ingredients">Ingredients</button>
                     <button onclick="openTab('reviews')" class="px-8 py-4 text-dark-bg hover:text-amber-800 transition tab-button" data-tab="reviews">Reviews (42)</button>
