@@ -239,7 +239,9 @@ function displayProducts(products) {
     productsGrid.innerHTML = products.map(product => `
         <div class="product-card rounded-xl overflow-hidden transform transition-all duration-500 hover:scale-105 group">
             <div class="relative">
+                <a href="/product.html">
                 <img src="${product.image}" alt="${product.name}" class="w-full h-80 object-cover transform transition-transform duration-700 group-hover:scale-110">
+                </a>
                 <div class="absolute top-4 right-4">
                     <div class="golden-gradient text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm bg-opacity-30">
                         $${product.price}
@@ -256,7 +258,9 @@ function displayProducts(products) {
             </div>
             <div class="p-6 space-y-4">
                 <div class="space-y-2">
+                 <a href="/product.html">
                     <h3 class="text-2xl font-cormorant font-bold text-gray-900">${product.name}</h3>
+                    </a>
                     <p class="text-gray-600 text-sm leading-relaxed">${product.description}</p>
                     <div class="flex items-center gap-2 mt-3">
                         <span class="text-sm font-medium text-amber-800" data-i18n="shop.product.keyNotes">${keyNotesText}</span>
