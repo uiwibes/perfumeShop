@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Alda Perfume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/i18n.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <style>
+        :root {
+            --primary-gold: #c2a575;
+            --primary-gold-light: #e2d5bc;
+            --dark-bg: #1a1a1a;
+            --dark-bg-light: #2d2d2d;
+            --dark-text: #e0e0e0;
+            --dark-text-secondary: #b0b0b0;
+            --nav-bg: rgba(26, 26, 26, 0.95);
+            --footer-bg: #121212;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        .auth-container {
+            background: linear-gradient(135deg, rgba(45,45,45,0.4) 0%, rgba(26,26,26,0.4) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(194,165,117,0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(45,45,45,0.5);
+            border: 1px solid rgba(194,165,117,0.3);
+            border-radius: 0.375rem;
+            color: var(--dark-text);
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            background: rgba(45,45,45,0.7);
+            box-shadow: 0 0 0 2px rgba(194,165,117,0.2);
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-text-secondary);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .input-group input:focus ~ label,
+        .input-group input:not(:placeholder-shown) ~ label {
+            top: 0;
+            transform: translateY(-100%);
+            font-size: 0.875rem;
+            color: var(--primary-gold);
+        }
+
+        .btn-auth {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+            color: var(--dark-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-auth:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(194,165,117,0.3);
+        }
+
+        .social-login-btn {
+            background: rgba(45,45,45,0.5);
+            border: 1px solid rgba(194,165,117,0.3);
+            color: var(--dark-text);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-login-btn:hover {
+            background: rgba(45,45,45,0.7);
+            border-color: var(--primary-gold);
+            box-shadow: 0 2px 10px rgba(194,165,117,0.2);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--dark-text-secondary);
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid rgba(194,165,117,0.3);
+        }
+
+        .divider::before {
+            margin-right: 1rem;
+        }
+
+        .divider::after {
+            margin-left: 1rem;
+        }
+
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-selector select {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            padding-right: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-bg);
+        }
+        
+        .language-selector::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 0.75rem;
+            color: var(--dark-bg);
+        }
+
+        .mobile-menu {
+            background-color: var(--dark-bg);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #mobileMenu a {
+            color: var(--dark-text);
+        }
+
+        #mobileMenu a:hover {
+            color: var(--primary-gold);
+        }
+
+        .bg-primary-gold {
+            background-color: var(--primary-gold);
+        }
+
+        #mobileLanguageSelector, #mobileLang::after {
+            color: var(--dark-text);
+        }
+    </style>
+</head>
+<body class="bg-dark-bg font-montserrat">
+    <!-- Navigation -->
+    <nav class="bg-header shadow-sm w-full z-[100] transition-all duration-300" id="mainNav">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center space-x-2 text-xl tracking-widest text-dark-text">
+                    ALDA PERFUME
+                </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.home">Home</a>
+                    <a href="/shop.html" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.shop">Shop</a>
+                    <a href="/about.html" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.about">About</a>
+                    <a href="/contact.html" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.contact">Contact</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div class="language-selector text-dark-text hidden md:block">
+                        <select id="languageSelector" class="text-dark-text hover:text-primary-gold transition-colors">
+                            <option value="en" data-i18n="languageSelector.en">English</option>
+                            <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
+                        </select>
+                    </div>
+                    <button class="text-dark-text hover:text-primary-gold transition-colors" aria-label="Search">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                    <a class="text-dark-text hover:text-primary-gold transition-colors" aria-label="Account" href="/login.html">
+                        <i class="fas fa-user text-xl"></i>
+                    </a>
+                    <a class="relative text-dark-text hover:text-primary-gold transition-colors" href="/cart.html" aria-label="Cart">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-primary-gold text-dark-bg text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+                </a>
+                    <button id="mobileMenuBtn" class="md:hidden text-dark-text hover:text-primary-gold transition-colors" aria-label="Menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 w-64 bg-dark-bg shadow-lg transform md:hidden z-[101]">
+            <div class="p-6">
+                <button id="closeMenu" class="absolute top-4 right-4 text-dark-bg hover:text-primary-gold" aria-label="Close menu">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="mt-8 space-y-6">
+                    <a href="/" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.home">Home</a>
+                    <a href="/shop.html" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.shop">Shop</a>
+                    <a href="/about.html" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.about">About</a>
+                    <a href="/contact.html" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.contact">Contact</a>
+                    <div id="mobileLang" class="language-selector text-dark-bg mt-4 block md:hidden">
+                        <select id="mobileLanguageSelector" class="text-dark-text hover:text-primary-gold transition-colors w-full">
+                            <option value="en" data-i18n="languageSelector.en">English</option>
+                            <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="min-h-screen pt-20 pb-16 relative">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/luxury-perfume-dark.jpg" alt="" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark-bg via-dark-bg/95 to-dark-bg"></div>
+        </div>
+
+        <!-- Register Container -->
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-md mx-auto auth-container rounded-lg p-8 mt-12">
+                <div class="text-center mb-8">
+                    <h1 class="font-cormorant text-3xl font-bold mb-2 text-primary-gold" data-i18n="register.title">Create Account</h1>
+                    <p class="text-dark-text-secondary" data-i18n="register.subtitle">Join the Alda Perfume community</p>
+                </div>
+
+                <!-- Social Register Buttons -->
+                <div class="space-y-4 mb-8">
+                    <button class="social-login-btn w-full flex items-center justify-center space-x-3">
+                        <i class="fab fa-google"></i>
+                        <span data-i18n="register.socialLogin.google">Sign up with Google</span>
+                    </button>
+                    <button class="social-login-btn w-full flex items-center justify-center space-x-3">
+                        <i class="fab fa-facebook"></i>
+                        <span data-i18n="register.socialLogin.facebook">Sign up with Facebook</span>
+                    </button>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider mb-8">
+                    <span data-i18n="register.divider">or</span>
+                </div>
+
+                <!-- Register Form -->
+                <form class="space-y-6">
+                    <div class="input-group">
+                        <input type="text" id="fullName" placeholder=" " required>
+                        <label for="fullName" data-i18n="register.form.fullName">Full Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email" data-i18n="register.form.email">Email Address</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder=" " required>
+                        <label for="password" data-i18n="register.form.password">Password</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="confirmPassword" placeholder=" " required>
+                        <label for="confirmPassword" data-i18n="register.form.confirmPassword">Confirm Password</label>
+                    </div>
+
+                    <div class="flex items-center mb-6">
+                        <label class="custom-checkbox flex items-center">
+                            <input type="checkbox" id="terms" required>
+                            <span class="checkmark"></span>
+                            <span class="text-sm text-dark-text-secondary ml-2">
+                                <span data-i18n="register.form.termsText">I agree to the</span>
+                                <a href="#" class="text-primary-gold hover:text-primary-gold-light transition-colors" data-i18n="register.form.termsLink">Terms & Conditions</a>
+                            </span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-auth w-full" data-i18n="register.form.signUp">Create Account</button>
+                </form>
+
+                <p class="text-center mt-6 text-dark-text-secondary">
+                    <span data-i18n="register.login.text">Already have an account?</span>
+                    <a href="/login.html" class="text-primary-gold hover:text-primary-gold-light transition-colors" data-i18n="register.login.link">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-xl font-cormorant font-bold mb-6" data-i18n="footer.brand">Alda Perfume</h3>
+                    <p class="text-gray-400" data-i18n="footer.tagline">Crafting your perfect scent story</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-cormorant font-bold mb-6" data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.collections">Collections</a></li>
+                        <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.findScent">Find Your Scent</a></li>
+                        <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.about">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-cormorant font-bold mb-6" data-i18n="footer.contact">Contact</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><span data-i18n="footer.contactInfo.email">Email:</span> contact@aldaperfume.com</li>
+                        <li><span data-i18n="footer.contactInfo.phone">Phone:</span> +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmPassword').value,
+                terms: document.getElementById('terms').checked
+            };
+            
+            // Password validation
+            if (formData.password !== formData.confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            console.log('Registration attempt:', formData);
+            
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'fixed top-4 right-4 bg-dark-bg-light border-l-4 border-primary-gold text-dark-text p-4 rounded shadow-md';
+            successMessage.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-primary-gold mr-2"></i>
+                    <p>Registration successful! Redirecting...</p>
+                </div>
+            `;
+            document.body.appendChild(successMessage);
+            
+            // Remove success message after 3 seconds
+            setTimeout(() => {
+                successMessage.remove();
+                // Here you would typically redirect to the login page
+                // window.location.href = '/login.html';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

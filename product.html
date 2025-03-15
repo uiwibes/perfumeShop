@@ -4,22 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alda Perfume - Product Details</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="css/style.css" rel="stylesheet">
+    <script src="js/i18n.js" defer></script>
+    <script src="js/script.js" defer></script>
     <style>
         :root {
             --primary-gold: #c2a575;
             --primary-gold-light: #e2d5bc;
+            --dark-bg: #1a1a1a;
+            --dark-bg-light: #2d2d2d;
+            --dark-text: #e0e0e0;
+            --dark-text-secondary: #b0b0b0;
+            --nav-bg: rgba(26, 26, 26, 0.95);
+            --footer-bg: #121212;
         }
         
+        body {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+/* Language selector styles */
+.language-selector {
+            position: relative;
+            /* display: inline-block; */
+        }
+        
+        .language-selector select {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            padding-right: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-bg);
+        }
+        
+        .language-selector::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 0.75rem;
+            color: var(--dark-bg);
+        }
+
+    
+
+
+        .text-dark-text {
+            color: var(--dark-bg) ;
+        }
+        .mobile-menu {
+    background-color: var(--dark-bg);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+}
+.mobile-menu.active {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+}
         .font-cormorant { font-family: 'Cormorant Garamond', serif; }
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
         
         .golden-gradient {
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
         }
+
         .golden-text-gradient {
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
             -webkit-background-clip: text;
@@ -27,14 +85,16 @@
         }
         
         .section-bg-light {
-            background: linear-gradient(to bottom, #ffffff 0%, #faf7f2 100%);
+            background: linear-gradient(to bottom, var(--dark-bg) 0%, var(--dark-bg-light) 100%);
         }
+
         .section-bg-dark {
-            background: linear-gradient(to bottom, #faf7f2 0%, #f5efe5 100%);
+            background: linear-gradient(to bottom, var(--dark-bg-light) 0%, var(--dark-bg) 100%);
         }
-        
-        .nav-link {
+       /* Navigation Link Underline Effect */
+       .nav-link {
             position: relative;
+            /* color: var(--dark-text) !important; */
         }
         .nav-link::after {
             content: '';
@@ -50,16 +110,53 @@
             width: 100%;
         }
         
+        /* Language selector styles */
+        .language-selector {
+            position: relative;
+        }
+        
+     
+         /* Mobile Menu Styles */
+         .mobile-menu {
+            background-color: var(--dark-bg);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+            visibility: visible;
+            opacity: 1;
+        }
+        .language-selector::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 0.75rem;
+            /* color: var(--dark-text); */
+        }
+        #mobileLanguageSelector,#mobileLang::after {
+
+color: var(--dark-text);
+}
         .btn-primary {
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
-            color: white;
+            color: var(--dark-bg);
             padding: 0.75rem 2rem;
             border-radius: 9999px;
             transition: opacity 0.3s ease;
         }
+
         .btn-primary:hover {
             opacity: 0.9;
         }
+
         .btn-outline {
             border: 2px solid var(--primary-gold);
             color: var(--primary-gold);
@@ -67,9 +164,10 @@
             border-radius: 9999px;
             transition: all 0.3s ease;
         }
+
         .btn-outline:hover {
             background-color: var(--primary-gold);
-            color: white;
+            color: var(--dark-bg);
         }
 
         .thumbnail-active {
@@ -78,7 +176,10 @@
 
         .product-image-zoom {
             transition: transform 0.3s ease;
+            background: var(--dark-bg-light);
+            border: 1px solid var(--primary-gold);
         }
+
         .product-image-zoom:hover {
             transform: scale(1.05);
         }
@@ -87,52 +188,118 @@
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
             padding: 0.25rem 1rem;
             border-radius: 9999px;
-            color: white;
+            color: var(--dark-bg);
             font-size: 0.875rem;
             display: inline-block;
             margin: 0.25rem;
         }
+
+        /* Additional dark theme styles */
+        .product-details {
+            background: var(--dark-bg-light);
+            border: 1px solid var(--primary-gold);
+            border-radius: 0.5rem;
+            padding: 2rem;
+        }
+
+        .quantity-input {
+            background: var(--dark-bg);
+            border: 1px solid var(--primary-gold);
+            color: var(--dark-text);
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .product-description {
+            color: var(--dark-text-secondary);
+        }
+
+        .price {
+            color: var(--primary-gold);
+        }
+
+        .review-card {
+            background: var(--dark-bg-light);
+            border: 1px solid var(--primary-gold);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+
+        .star-rating {
+            color: var(--primary-gold);
+        }
     </style>
 </head>
-<body class="bg-white font-montserrat">
+<body class="font-montserrat">
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm fixed w-full z-50">
+    <nav class="bg-header shadow-sm w-full z-[100] transition-all duration-300" id="mainNav">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-20">
-                <a href="/" class="flex items-center space-x-2 text-xl tracking-widest">
+                <a href="/" class="flex items-center space-x-2 text-xl tracking-widest text-dark-text">
                     ALDA PERFUME
                 </a>
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="nav-link text-gray-600 hover:text-amber-800 transition-colors">Home</a>
-                    <a href="/shop.html" class="nav-link text-gray-600 hover:text-amber-800 transition-colors">Shop</a>
-                    <a href="#" class="nav-link text-gray-600 hover:text-amber-800 transition-colors">About</a>
-                    <a href="#" class="nav-link text-gray-600 hover:text-amber-800 transition-colors">Contact</a>
+                    <a href="/" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.home">Home</a>
+                    <a href="/shop.html" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.shop">Shop</a>
+                    <a href="/about.html" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.about">About</a>
+                    <a href="/contact.html" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.contact">Contact</a>
                 </div>
                 <div class="flex items-center space-x-6">
-                    <button class="text-gray-600 hover:text-amber-800 transition-colors">
+                    <div class="language-selector text-dark-text hidden md:block">
+                        <select id="languageSelector" class="text-dark-text hover:text-primary-gold transition-colors">
+                            <option value="en" data-i18n="languageSelector.en">English</option>
+                            <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
+                        </select>
+                    </div>
+                    <button class="text-dark-text hover:text-primary-gold transition-colors" aria-label="Search">
                         <i class="fas fa-search text-xl"></i>
                     </button>
-                    <button class="text-gray-600 hover:text-amber-800 transition-colors">
+                    <a class="text-dark-text hover:text-primary-gold transition-colors" aria-label="Account" href="/login.html">
                         <i class="fas fa-user text-xl"></i>
-                    </button>
-                    <button class="relative text-gray-600 hover:text-amber-800 transition-colors">
+                    </a>
+                    <a class="relative text-dark-text hover:text-primary-gold transition-colors" href="/cart.html" aria-label="Cart">
                         <i class="fas fa-shopping-bag text-xl"></i>
-                        <span class="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                        <span class="absolute -top-2 -right-2 bg-primary-gold text-dark-bg text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+                    </a>
+                    <button id="mobileMenuBtn" class="md:hidden text-dark-text hover:text-primary-gold transition-colors" aria-label="Menu">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 w-64 bg-dark-bg shadow-lg transform md:hidden z-[101]">
+            <div class="p-6">
+                <button id="closeMenu" class="absolute top-4 right-4 text-dark-bg hover:text-primary-gold" aria-label="Close menu">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="mt-8 space-y-6">
+                    <a href="/" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.home">Home</a>
+                    <a href="/shop.html" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.shop">Shop</a>
+                    <a href="/about.html" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.about">About</a>
+                    <a href="/contact.html" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.contact">Contact</a>
+                    <div id="mobileLang" class="language-selector text-dark-bg mt-4 block md:hidden">
+                        <select id="mobileLanguageSelector" class="text-dark-text hover:text-primary-gold transition-colors w-full">
+                            <option value="en" data-i18n="languageSelector.en">English</option>
+                            <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Breadcrumb -->
-    <div class="section-bg-light pt-28 pb-6">
+    <div class="section-bg-light pt-6 pb-6">
         <div class="container mx-auto px-4">
-            <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <a href="/" class="hover:text-amber-800">Home</a>
+            <div class="flex items-center space-x-2 text-sm text-dark-text-secondary">
+                <a href="/" class="hover:text-primary-gold">Home</a>
                 <i class="fas fa-chevron-right text-xs"></i>
-                <a href="/shop.html" class="hover:text-amber-800">Shop</a>
+                <a href="/shop.html" class="hover:text-primary-gold">Shop</a>
                 <i class="fas fa-chevron-right text-xs"></i>
-                <span class="text-amber-800">Moonlight Serenade</span>
+                <span class="text-primary-gold">Moonlight Serenade</span>
             </div>
         </div>
     </div>
@@ -143,133 +310,48 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Product Images -->
                 <div class="space-y-6">
-                    <div class="relative overflow-hidden rounded-lg bg-white shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Moonlight Serenade Perfume" 
-                             class="w-full h-[600px] object-cover product-image-zoom">
-                        <div class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
-                            <i class="far fa-heart text-xl text-amber-800"></i>
-                        </div>
+                    <div class="product-image-zoom rounded-lg overflow-hidden">
+                        <img src="images/photo-1615634260167-c8cdede054de.jpg" alt="Product Image" class="w-full h-auto">
                     </div>
                     <div class="grid grid-cols-4 gap-4">
-                        <div class="cursor-pointer rounded-lg overflow-hidden thumbnail-active">
-                            <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=300&q=80" 
-                                 alt="Thumbnail 1" 
-                                 class="w-full h-24 object-cover">
-                        </div>
-                        <div class="cursor-pointer rounded-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=300&q=80" 
-                                 alt="Thumbnail 2" 
-                                 class="w-full h-24 object-cover">
-                        </div>
-                        <div class="cursor-pointer rounded-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=300&q=80" 
-                                 alt="Thumbnail 3" 
-                                 class="w-full h-24 object-cover">
-                        </div>
-                        <div class="cursor-pointer rounded-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=300&q=80" 
-                                 alt="Thumbnail 4" 
-                                 class="w-full h-24 object-cover">
-                        </div>
+                        <img src="images/photo-1615634260167-c8cdede054de.jpg" alt="Thumbnail 1" class="thumbnail-active rounded-lg cursor-pointer">
+                        <img src="images/photo-1615634260167-c8cdede054de.jpg" alt="Thumbnail 2" class="rounded-lg cursor-pointer">
+                        <img src="images/photo-1615634260167-c8cdede054de.jpg" alt="Thumbnail 3" class="rounded-lg cursor-pointer">
+                        <img src="images/photo-1615634260167-c8cdede054de.jpg" alt="Thumbnail 4" class="rounded-lg cursor-pointer">
                     </div>
                 </div>
 
                 <!-- Product Details -->
-                <div class="space-y-8">
-                    <div>
-                        <h1 class="text-4xl md:text-5xl font-cormorant font-bold mb-4">Moonlight Serenade</h1>
-                        <div class="flex items-center space-x-4 mb-4">
-                            <div class="text-2xl font-cormorant font-bold text-amber-800">$299.00</div>
-                            <div class="text-sm text-gray-500 line-through">$349.00</div>
+                <div class="product-details">
+                    <h1 class="text-4xl font-cormorant font-bold mb-4">Moonlight Serenade</h1>
+                    <div class="flex items-center mb-4">
+                        <div class="star-rating flex items-center">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <div class="flex items-center space-x-2 mb-6">
-                            <div class="flex text-amber-800">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <span class="text-gray-600">(42 reviews)</span>
-                        </div>
+                        <span class="ml-2 text-dark-text-secondary">(4.5/5 - 128 reviews)</span>
                     </div>
-
-                    <div class="prose max-w-none">
-                        <p class="text-gray-600 leading-relaxed">
-                            A captivating blend of night-blooming jasmine, vanilla orchid, and warm amber, creating an enchanting aroma that evokes the mystery and romance of a moonlit garden. This sophisticated fragrance opens with fresh bergamot and develops into a heart of exotic florals, finally settling into a rich base of sandalwood and musk.
-                        </p>
+                    <p class="price text-3xl font-bold mb-6">$129.99</p>
+                    <p class="product-description mb-6">
+                        A mesmerizing blend of jasmine, vanilla, and sandalwood that captures the essence of a moonlit garden. 
+                        This enchanting fragrance opens with fresh citrus notes, evolves into a heart of exotic florals, and 
+                        settles into a warm, woody base that lingers throughout the night.
+                    </p>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <input type="number" value="1" min="1" class="quantity-input w-20">
+                        <button class="btn-primary flex-1">Add to Cart</button>
                     </div>
-
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="text-lg font-semibold mb-3">Key Notes</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tag">Jasmine</span>
-                                <span class="tag">Vanilla Orchid</span>
-                                <span class="tag">Amber</span>
-                                <span class="tag">Bergamot</span>
-                                <span class="tag">Sandalwood</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-semibold mb-3">Perfect For</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tag">Evening Wear</span>
-                                <span class="tag">Special Occasions</span>
-                                <span class="tag">Romantic Dates</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-semibold mb-3">Best Seasons</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tag">Fall</span>
-                                <span class="tag">Winter</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-6 pt-6 border-t">
-                        <div class="flex items-center space-x-4">
-                            <label class="text-gray-700 font-semibold">Size:</label>
-                            <div class="flex space-x-2">
-                                <button class="px-4 py-2 border-2 border-amber-800 text-amber-800 rounded-full hover:bg-amber-800 hover:text-white transition">30ml</button>
-                                <button class="px-4 py-2 border-2 border-gray-300 rounded-full hover:border-amber-800 hover:text-amber-800 transition">50ml</button>
-                                <button class="px-4 py-2 border-2 border-gray-300 rounded-full hover:border-amber-800 hover:text-amber-800 transition">100ml</button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center space-x-4">
-                            <label class="text-gray-700 font-semibold">Quantity:</label>
-                            <div class="flex items-center border-2 border-gray-300 rounded-full">
-                                <button class="px-4 py-2 text-gray-600 hover:text-amber-800 transition">-</button>
-                                <span class="px-4 border-x-2 border-gray-300">1</span>
-                                <button class="px-4 py-2 text-gray-600 hover:text-amber-800 transition">+</button>
-                            </div>
-                        </div>
-
-                        <div class="flex space-x-4">
-                            <button class="btn-primary flex-1">Add to Cart</button>
-                            <button class="btn-outline">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4 pt-6 border-t">
-                        <div class="flex items-center space-x-2 text-gray-600">
-                            <i class="fas fa-truck"></i>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-shipping-fast text-primary-gold"></i>
                             <span>Free shipping on orders over $100</span>
                         </div>
-                        <div class="flex items-center space-x-2 text-gray-600">
-                            <i class="fas fa-undo"></i>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-undo text-primary-gold"></i>
                             <span>30-day return policy</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-gray-600">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Secure checkout</span>
                         </div>
                     </div>
                 </div>
@@ -283,21 +365,21 @@
             <div class="max-w-4xl mx-auto">
                 <div class="flex border-b border-gray-300">
                     <button onclick="openTab('description')" class="px-8 py-4 text-amber-800 border-b-2 border-amber-800 font-semibold tab-button" data-tab="description">Description</button>
-                    <button onclick="openTab('ingredients')" class="px-8 py-4 text-gray-600 hover:text-amber-800 transition tab-button" data-tab="ingredients">Ingredients</button>
-                    <button onclick="openTab('reviews')" class="px-8 py-4 text-gray-600 hover:text-amber-800 transition tab-button" data-tab="reviews">Reviews (42)</button>
+                    <button onclick="openTab('ingredients')" class="px-8 py-4 text-dark-bg hover:text-amber-800 transition tab-button" data-tab="ingredients">Ingredients</button>
+                    <button onclick="openTab('reviews')" class="px-8 py-4 text-dark-bg hover:text-amber-800 transition tab-button" data-tab="reviews">Reviews (42)</button>
                 </div>
                 
                 <!-- Description Tab -->
                 <div id="description" class="tab-content py-8 prose max-w-none">
                     <h3 class="text-2xl font-cormorant font-bold mb-4">About Moonlight Serenade</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
+                    <p class="text-dark-bg leading-relaxed mb-6">
                         Moonlight Serenade is a masterpiece of perfumery that captures the essence of a romantic evening under the stars. This enchanting fragrance is carefully crafted using the finest ingredients, blending traditional perfumery techniques with modern sophistication.
                     </p>
-                    <p class="text-gray-600 leading-relaxed mb-6">
+                    <p class="text-dark-bg leading-relaxed mb-6">
                         The journey begins with a bright burst of Italian bergamot and pink pepper, creating an intriguing opening that draws you in. The heart reveals a luxurious bouquet of night-blooming jasmine and vanilla orchid, complemented by the warmth of amber. As the fragrance develops, it settles into a rich base of sandalwood, musk, and a hint of Madagascar vanilla, creating a lasting impression that lingers on the skin.
                     </p>
                     <h4 class="text-xl font-cormorant font-bold mb-4">The Experience</h4>
-                    <p class="text-gray-600 leading-relaxed">
+                    <p class="text-dark-bg leading-relaxed">
                         Each bottle of Moonlight Serenade is a work of art, housed in a hand-crafted crystal flacon that reflects the luminescent quality of moonlight. The fragrance evolves throughout the evening, revealing different facets of its complex composition as time passes, making it perfect for special occasions and memorable nights.
                     </p>
                 </div>
@@ -308,25 +390,25 @@
                     <div class="space-y-6">
                         <div>
                             <h4 class="text-xl font-cormorant font-bold mb-3">Top Notes</h4>
-                            <p class="text-gray-600 leading-relaxed">
+                            <p class="text-dark-bg leading-relaxed">
                                 Italian Bergamot, Pink Pepper, Mandarin Orange
                             </p>
                         </div>
                         <div>
                             <h4 class="text-xl font-cormorant font-bold mb-3">Heart Notes</h4>
-                            <p class="text-gray-600 leading-relaxed">
+                            <p class="text-dark-bg leading-relaxed">
                                 Night-Blooming Jasmine, Vanilla Orchid, Bulgarian Rose, Iris
                             </p>
                         </div>
                         <div>
                             <h4 class="text-xl font-cormorant font-bold mb-3">Base Notes</h4>
-                            <p class="text-gray-600 leading-relaxed">
+                            <p class="text-dark-bg leading-relaxed">
                                 Warm Amber, Sandalwood, Madagascar Vanilla, White Musk
                             </p>
                         </div>
                         <div class="mt-8 pt-6 border-t border-gray-200">
                             <h4 class="text-xl font-cormorant font-bold mb-3">Additional Information</h4>
-                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                            <ul class="list-disc pl-5 text-dark-bg space-y-2">
                                 <li>All ingredients are ethically sourced</li>
                                 <li>Cruelty-free and vegan-friendly</li>
                                 <li>Free from parabens and synthetic dyes</li>
@@ -408,7 +490,7 @@
                                             SE
                                         </div>
                                         <div>
-                                            <div class="font-semibold">Sarah E.</div>
+                                            <div class="font-semibold text-black">Sarah E.</div>
                                             <div class="text-sm text-gray-500">Verified Purchaser</div>
                                         </div>
                                     </div>
@@ -421,7 +503,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <h4 class="font-semibold mb-2">Absolutely enchanting!</h4>
+                                <h4 class="font-semibold mb-2 text-black">Absolutely enchanting!</h4>
                                 <p class="text-gray-600 mb-4">
                                     This perfume is everything I hoped it would be and more. The scent is sophisticated and long-lasting, perfect for special evenings. The vanilla and jasmine notes are perfectly balanced, and the dry down is simply divine.
                                 </p>
@@ -445,7 +527,7 @@
                                             MK
                                         </div>
                                         <div>
-                                            <div class="font-semibold">Michael K.</div>
+                                            <div class="font-semibold text-black">Michael K.</div>
                                             <div class="text-sm text-gray-500">Verified Purchaser</div>
                                         </div>
                                     </div>
@@ -458,7 +540,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i>
                                 </div>
-                                <h4 class="font-semibold mb-2">Elegant but could last longer</h4>
+                                <h4 class="font-semibold mb-2 text-black">Elegant but could last longer</h4>
                                 <p class="text-gray-600 mb-4">
                                     The fragrance is beautiful and sophisticated, perfect for evening wear. My only wish is that it would last a bit longer. The initial scent is amazing but starts to fade after 4-5 hours.
                                 </p>
@@ -500,10 +582,10 @@
             tabButtons.forEach(button => {
                 if (button.getAttribute('data-tab') === tabName) {
                     button.classList.add('text-amber-800', 'border-b-2', 'border-amber-800');
-                    button.classList.remove('text-gray-600');
+                    button.classList.remove('text-dark-bg');
                 } else {
                     button.classList.remove('text-amber-800', 'border-b-2', 'border-amber-800');
-                    button.classList.add('text-gray-600');
+                    button.classList.add('text-dark-bg');
                 }
             });
         }
@@ -511,11 +593,13 @@
         // Review System Functions
         function openReviewModal() {
             document.getElementById('reviewModal').classList.remove('hidden');
+            document.getElementById('mainNav').style.zIndex = '0';
             document.body.style.overflow = 'hidden';
         }
 
         function closeReviewModal() {
             document.getElementById('reviewModal').classList.add('hidden');
+            document.getElementById('mainNav').style.zIndex = '100';
             document.body.style.overflow = 'auto';
         }
 
@@ -632,7 +716,7 @@
         <div class="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
             <div class="p-6 space-y-6">
                 <div class="flex items-center justify-between">
-                    <h3 class="text-2xl font-cormorant font-bold">Write a Review</h3>
+                    <h3 class="text-2xl font-cormorant font-bold text-black">Write a Review</h3>
                     <button onclick="closeReviewModal()" class="text-gray-400 hover:text-gray-600">
                         <i class="fas fa-times text-xl"></i>
                     </button>
@@ -805,22 +889,22 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
-                    <h3 class="text-xl font-cormorant font-bold mb-6">Alda Perfume</h3>
-                    <p class="text-gray-400">Crafting your perfect scent story</p>
+                    <h3 class="text-xl font-cormorant font-bold mb-6" data-i18n="footer.brand">Alda Perfume</h3>
+                    <p class="text-gray-400" data-i18n="footer.tagline">Crafting your perfect scent story</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-cormorant font-bold mb-6">Quick Links</h4>
+                    <h4 class="text-lg font-cormorant font-bold mb-6" data-i18n="footer.quickLinks">Quick Links</h4>
                     <ul class="space-y-4 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Collections</a></li>
-                        <li><a href="#" class="hover:text-white transition">Find Your Scent</a></li>
-                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.collections">Collections</a></li>
+                        <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.findScent">Find Your Scent</a></li>
+                        <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.about">About Us</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-cormorant font-bold mb-6">Contact</h4>
+                    <h4 class="text-lg font-cormorant font-bold mb-6" data-i18n="footer.contact">Contact</h4>
                     <ul class="space-y-4 text-gray-400">
-                        <li>Email: contact@aldaperfume.com</li>
-                        <li>Phone: +1 (555) 123-4567</li>
+                        <li><span data-i18n="footer.contactInfo.email">Email:</span> contact@aldaperfume.com</li>
+                        <li><span data-i18n="footer.contactInfo.phone">Phone:</span> +1 (555) 123-4567</li>
                     </ul>
                 </div>
             </div>
