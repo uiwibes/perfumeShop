@@ -359,5 +359,61 @@
   },
   "common": {
     "close": "Kapat"
+  },
+  "login": {
+    "title": "Tekrar Hoşgeldiniz",
+    "subtitle": "Alda Perfume hesabınıza giriş yapın",
+    "socialLogin": {
+      "google": "Google ile devam et",
+      "facebook": "Facebook ile devam et"
+    },
+    "divider": "veya",
+    "form": {
+      "email": "E-posta Adresi",
+      "password": "Şifre",
+      "rememberMe": "Beni hatırla",
+      "forgotPassword": "Şifremi Unuttum?",
+      "signIn": "Giriş Yap"
+    },
+    "createAccount": {
+      "text": "Hesabınız yok mu?",
+      "link": "Hesap Oluştur"
+    }
+  },
+  "register": {
+    "title": "Hesap Oluştur",
+    "subtitle": "Alda Perfume topluluğuna katılın",
+    "socialLogin": {
+      "google": "Google ile kaydol",
+      "facebook": "Facebook ile kaydol"
+    },
+    "divider": "veya",
+    "form": {
+      "fullName": "Ad Soyad",
+      "email": "E-posta Adresi",
+      "password": "Şifre",
+      "confirmPassword": "Şifreyi Onayla",
+      "termsText": "Kabul ediyorum",
+      "termsLink": "Şartlar ve Koşullar",
+      "signUp": "Hesap Oluştur"
+    },
+    "login": {
+      "text": "Zaten hesabınız var mı?",
+      "link": "Giriş Yap"
+    }
+  },
+  "cart": {
+    "pageTitle": "Alışveriş Sepeti - Alda Perfume",
+    "title": "Alışveriş Sepeti",
+    "remove": "Kaldır",
+    "summary": {
+      "title": "Sipariş Özeti",
+      "subtotal": "Ara Toplam",
+      "shipping": "Kargo",
+      "freeShipping": "Ücretsiz",
+      "tax": "Vergi",
+      "total": "Toplam"
+    },
+    "checkout": "Ödemeye Geç"
   }
 } 

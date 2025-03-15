@@ -359,5 +359,61 @@
   },
   "common": {
     "close": "Close"
+  },
+  "login": {
+    "title": "Welcome Back",
+    "subtitle": "Sign in to your Alda Perfume account",
+    "socialLogin": {
+      "google": "Continue with Google",
+      "facebook": "Continue with Facebook"
+    },
+    "divider": "or",
+    "form": {
+      "email": "Email Address",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot Password?",
+      "signIn": "Sign In"
+    },
+    "createAccount": {
+      "text": "Don't have an account?",
+      "link": "Create Account"
+    }
+  },
+  "register": {
+    "title": "Create Account",
+    "subtitle": "Join the Alda Perfume community",
+    "socialLogin": {
+      "google": "Sign up with Google",
+      "facebook": "Sign up with Facebook"
+    },
+    "divider": "or",
+    "form": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "termsText": "I agree to the",
+      "termsLink": "Terms & Conditions",
+      "signUp": "Create Account"
+    },
+    "login": {
+      "text": "Already have an account?",
+      "link": "Sign In"
+    }
+  },
+  "cart": {
+    "pageTitle": "Shopping Cart - Alda Perfume",
+    "title": "Shopping Cart",
+    "remove": "Remove",
+    "summary": {
+      "title": "Order Summary",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "freeShipping": "Free",
+      "tax": "Tax",
+      "total": "Total"
+    },
+    "checkout": "Proceed to Checkout"
   }
 } 
