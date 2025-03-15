@@ -12,31 +12,34 @@ const perfumeResults = document.getElementById('perfumeResults');
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
     // Start button scrolls to gender selection
-    startQuizBtn.addEventListener('click', function() {
-        genderSection.scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Gender selection
-    const genderOptions = document.querySelectorAll('.gender-option');
-    genderOptions.forEach((option, index) => {
-        option.addEventListener('click', function() {
-            // Remove selected class from all options
-            genderOptions.forEach(opt => opt.classList.remove('selected'));
-            // Add selected class to clicked option
-            this.classList.add('selected');
-            
-            // Store selected gender based on index
-            const genders = ['feminine', 'masculine', 'neutral'];
-            selectedGender = genders[index];
-            
-            // Show quiz section after short delay
-            setTimeout(() => {
-                quizSection.classList.remove('hidden');
-                quizSection.scrollIntoView({ behavior: 'smooth' });
-                initializeQuiz();
-            }, 500);
+    if (startQuizBtn) {
+        startQuizBtn.addEventListener('click', function() {
+            genderSection.scrollIntoView({ behavior: 'smooth' });
         });
-    });
+    
+        // Gender selection
+        const genderOptions = document.querySelectorAll('.gender-option');
+        genderOptions.forEach((option, index) => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                genderOptions.forEach(opt => opt.classList.remove('selected'));
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Store selected gender based on index
+                const genders = ['feminine', 'masculine', 'neutral'];
+                selectedGender = genders[index];
+                
+                // Show quiz section after short delay
+                setTimeout(() => {
+                    quizSection.classList.remove('hidden');
+                    quizSection.scrollIntoView({ behavior: 'smooth' });
+                    initializeQuiz();
+                }, 500);
+            });
+        });
+    }
+    
 });
 
 function initializeQuiz() {
@@ -882,9 +885,11 @@ function showResults() {
 
      // Function to toggle menu
      function toggleMenu(show) {
+        
          if (show) {
              mobileMenu.classList.add('active');
          } else {
+           
              mobileMenu.classList.remove('active');
          }
      }
@@ -919,7 +924,17 @@ function showResults() {
              toggleMenu(false);
          }
      });
-
+     if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+        });
+        
+        if (closeMenuBtn) {
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-x-full');
+            });
+        }
+    }
      // Add event listener for mobile language selector
      document.addEventListener('DOMContentLoaded', () => {
          const mobileLanguageSelector = document.getElementById('mobileLanguageSelector');
