@@ -415,5 +415,42 @@
       "total": "Total"
     },
     "checkout": "Proceed to Checkout"
+  },
+  "checkout": {
+    "pageTitle": "Checkout - Alda Perfume",
+    "title": "Checkout",
+    "shipping": {
+      "title": "Shipping Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "address": "Street Address",
+      "city": "City",
+      "state": "State/Province",
+      "zip": "Postal Code",
+      "country": "Country"
+    },
+    "payment": {
+      "title": "Payment Method",
+      "creditCard": "Credit Card",
+      "paypal": "PayPal",
+      "applePay": "Apple Pay",
+      "cardNumber": "Card Number",
+      "expiryDate": "Expiry Date",
+      "cvv": "CVV",
+      "nameOnCard": "Name on Card"
+    },
+    "summary": {
+      "title": "Order Summary",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "freeShipping": "Free",
+      "tax": "Tax",
+      "total": "Total",
+      "apply": "Apply"
+    },
+    "placeOrder": "Place Order",
+    "secureNotice": "Secure Checkout - Your data is protected"
   }
 } 

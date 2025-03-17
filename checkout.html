@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="checkout.pageTitle">Checkout - Alda Perfume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/i18n.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <style>
+      :root {
+            --primary-gold: #c2a575;
+            --primary-gold-light: #e2d5bc;
+            --dark-bg: #1a1a1a;
+            --dark-bg-light: #2d2d2d;
+            --dark-text: #e0e0e0;
+            --dark-text-secondary: #b0b0b0;
+            --nav-bg: rgba(26, 26, 26, 0.95);
+            --footer-bg: #121212;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        .auth-container {
+            background: linear-gradient(135deg, rgba(45,45,45,0.4) 0%, rgba(26,26,26,0.4) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(194,165,117,0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(45,45,45,0.5);
+            border: 1px solid rgba(194,165,117,0.3);
+            border-radius: 0.375rem;
+            color: var(--dark-text);
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            background: rgba(45,45,45,0.7);
+            box-shadow: 0 0 0 2px rgba(194,165,117,0.2);
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--dark-text-secondary);
+        }
+
+        /* Language selector styles */
+        .language-selector {
+            position: relative;
+            /* display: inline-block; */
+        }
+        
+        .language-selector select {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            padding-right: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-bg);
+        }
+        
+        .language-selector::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 0.75rem;
+            color: var(--dark-bg);
+        }
+
+        .btn-checkout {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+            color: var(--dark-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-checkout:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(194,165,117,0.3);
+        }
+
+        .text-dark-text {
+            color: var(--dark-bg) ;
+        }
+        
+        .mobile-menu {
+            background-color: var(--dark-bg);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Navigation Link Underline Effect */
+        .nav-link {
+            position: relative;
+            /* color: var(--dark-text) !important; */
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            background-color: var(--dark-bg);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .language-selector::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 0.75rem;
+            /* color: var(--dark-text); */
+        }
+        
+        #mobileLanguageSelector, #mobileLang::after {
+            color: var(--dark-text);
+        }
+
+        .section-bg-dark {
+            background-color: var(--dark-bg-light);
+            border-radius: 0.5rem;
+        }
+
+        .payment-method {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary-gold);
+            background-color: rgba(194,165,117,0.1);
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary-gold);
+        }
+    </style>
+</head>
+<body class="bg-dark-bg font-montserrat">
+    <!-- Navigation -->
+    <nav class="bg-header shadow-sm w-full z-[100] transition-all duration-300" id="mainNav">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center space-x-2 text-xl tracking-widest text-dark-text">
+                    ALDA PERFUME
+                </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.home">Home</a>
+                    <a href="/shop.html" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.shop">Shop</a>
+                    <a href="/about.html" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.about">About</a>
+                    <a href="/contact.html" class="nav-link text-dark-text hover:text-primary-gold transition-colors" data-i18n="navigation.contact">Contact</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div class="language-selector text-dark-text hidden md:block">
+                        <select id="languageSelector" class="text-dark-text hover:text-primary-gold transition-colors">
+                            <option value="en" data-i18n="languageSelector.en">English</option>
+                            <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
+                        </select>
+                    </div>
+                    <button class="text-dark-text hover:text-primary-gold transition-colors" aria-label="Search">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                    <a class="text-dark-text hover:text-primary-gold transition-colors" aria-label="Account" href="/login.html">
+                        <i class="fas fa-user text-xl"></i>
+                    </a>
+                    <a class="relative text-dark-text hover:text-primary-gold transition-colors" href="/cart.html" aria-label="Cart">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-primary-gold text-dark-bg text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+                    </a>
+                    <button id="mobileMenuBtn" class="md:hidden text-dark-text hover:text-primary-gold transition-colors" aria-label="Menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 w-64 bg-dark-bg shadow-lg transform md:hidden z-[101]">
+            <div class="p-6">
+                <button id="closeMenu" class="absolute top-4 right-4 text-dark-bg hover:text-primary-gold" aria-label="Close menu">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="mt-8 space-y-6">
+                    <a href="/" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.home">Home</a>
+                    <a href="/shop.html" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.shop">Shop</a>
+                    <a href="/about.html" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.about">About</a>
+                    <a href="/contact.html" class="block text-dark-bg hover:text-primary-gold transition-colors" data-i18n="navigation.contact">Contact</a>
+                    <div id="mobileLang" class="language-selector text-dark-bg mt-4 block md:hidden">
+                        <select id="mobileLanguageSelector" class="text-dark-text hover:text-primary-gold transition-colors w-full">
+                            <option value="en" data-i18n="languageSelector.en">English</option>
+                            <option value="tr" data-i18n="languageSelector.tr">Turkish</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl md:text-4xl font-cormorant font-bold mb-6 text-dark-text text-center" data-i18n="checkout.title">Checkout</h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Checkout Form -->
+            <div class="space-y-8">
+                <!-- Shipping Information -->
+                <div class="section-bg-dark p-6 rounded-lg border border-primary-gold/30">
+                    <h2 class="text-2xl font-cormorant font-bold mb-6 text-dark-bg" data-i18n="checkout.shipping.title">Shipping Information</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label for="firstName" data-i18n="checkout.shipping.firstName">First Name</label>
+                            <input type="text" id="firstName" class="w-full">
+                        </div>
+                        <div class="input-group">
+                            <label for="lastName" data-i18n="checkout.shipping.lastName">Last Name</label>
+                            <input type="text" id="lastName" class="w-full">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email" data-i18n="checkout.shipping.email">Email Address</label>
+                        <input type="email" id="email" class="w-full">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="phone" data-i18n="checkout.shipping.phone">Phone Number</label>
+                        <input type="tel" id="phone" class="w-full">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="address" data-i18n="checkout.shipping.address">Street Address</label>
+                        <input type="text" id="address" class="w-full">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="input-group">
+                            <label for="city" data-i18n="checkout.shipping.city">City</label>
+                            <input type="text" id="city" class="w-full">
+                        </div>
+                        <div class="input-group">
+                            <label for="state" data-i18n="checkout.shipping.state">State/Province</label>
+                            <input type="text" id="state" class="w-full">
+                        </div>
+                        <div class="input-group">
+                            <label for="zip" data-i18n="checkout.shipping.zip">Postal Code</label>
+                            <input type="text" id="zip" class="w-full">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="country" data-i18n="checkout.shipping.country">Country</label>
+                        <select id="country" class="w-full">
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="TR">Turkey</option>
+                            <option value="AU">Australia</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Payment Method -->
+                <div class="section-bg-dark p-6 rounded-lg border border-primary-gold/30">
+                    <h2 class="text-2xl font-cormorant font-bold mb-6 text-dark-bg" data-i18n="checkout.payment.title">Payment Method</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="payment-method p-4 border border-gray-600 rounded-lg flex items-center space-x-3" onclick="selectPayment('credit')">
+                            <input type="radio" name="paymentMethod" id="creditCard" value="credit" class="text-primary-gold">
+                            <label for="creditCard" class="flex items-center space-x-2 cursor-pointer">
+                                <i class="fas fa-credit-card text-primary-gold"></i>
+                                <span data-i18n="checkout.payment.creditCard">Credit Card</span>
+                            </label>
+                        </div>
+                        
+                        <div class="payment-method p-4 border border-gray-600 rounded-lg flex items-center space-x-3" onclick="selectPayment('paypal')">
+                            <input type="radio" name="paymentMethod" id="paypal" value="paypal" class="text-primary-gold">
+                            <label for="paypal" class="flex items-center space-x-2 cursor-pointer">
+                                <i class="fab fa-paypal text-primary-gold"></i>
+                                <span data-i18n="checkout.payment.paypal">PayPal</span>
+                            </label>
+                        </div>
+                        
+                        <div class="payment-method p-4 border border-gray-600 rounded-lg flex items-center space-x-3" onclick="selectPayment('apple')">
+                            <input type="radio" name="paymentMethod" id="applePay" value="apple" class="text-primary-gold">
+                            <label for="applePay" class="flex items-center space-x-2 cursor-pointer">
+                                <i class="fab fa-apple-pay text-primary-gold"></i>
+                                <span data-i18n="checkout.payment.applePay">Apple Pay</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Credit Card Details (shown when credit card is selected) -->
+                    <div id="creditCardDetails" class="mt-6 space-y-4 hidden">
+                        <div class="input-group">
+                            <label for="cardNumber" data-i18n="checkout.payment.cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" class="w-full" placeholder="1234 5678 9012 3456">
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="input-group">
+                                <label for="expiryDate" data-i18n="checkout.payment.expiryDate">Expiry Date</label>
+                                <input type="text" id="expiryDate" class="w-full" placeholder="MM/YY">
+                            </div>
+                            <div class="input-group">
+                                <label for="cvv" data-i18n="checkout.payment.cvv">CVV</label>
+                                <input type="text" id="cvv" class="w-full" placeholder="123">
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="nameOnCard" data-i18n="checkout.payment.nameOnCard">Name on Card</label>
+                            <input type="text" id="nameOnCard" class="w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="section-bg-dark p-6 rounded-lg h-fit">
+                <h2 class="text-2xl font-cormorant font-bold mb-6 text-dark-bg" data-i18n="checkout.summary.title">Order Summary</h2>
+                
+                <!-- Order Items -->
+                <div class="space-y-4 mb-6">
+                    <div class="flex justify-between items-center pb-4 border-b border-gray-600">
+                        <div class="flex items-center space-x-3">
+                            <img src="images/fulvio-ciccolo-E6Ed669pvQQ-unsplash.jpg" alt="Royal Rose" class="w-16 h-16 object-cover rounded">
+                            <div>
+                                <h4 class="font-medium">Royal Rose</h4>
+                                <p class="text-sm text-dark-text-secondary">Qty: 1</p>
+                            </div>
+                        </div>
+                        <span class="text-primary-gold">$129.99</span>
+                    </div>
+                    
+                    <div class="flex justify-between items-center pb-4 border-b border-gray-600">
+                        <div class="flex items-center space-x-3">
+                            <img src="images/fulvio-ciccolo-E6Ed669pvQQ-unsplash.jpg" alt="Ocean Breeze" class="w-16 h-16 object-cover rounded">
+                            <div>
+                                <h4 class="font-medium">Ocean Breeze</h4>
+                                <p class="text-sm text-dark-text-secondary">Qty: 1</p>
+                            </div>
+                        </div>
+                        <span class="text-primary-gold">$89.99</span>
+                    </div>
+                </div>
+                
+                <!-- Price Summary -->
+                <div class="space-y-4 mb-6">
+                    <div class="flex justify-between text-dark-text-secondary">
+                        <span data-i18n="checkout.summary.subtotal">Subtotal</span>
+                        <span>$219.98</span>
+                    </div>
+                    <div class="flex justify-between text-dark-text-secondary">
+                        <span data-i18n="checkout.summary.shipping">Shipping</span>
+                        <span data-i18n="checkout.summary.freeShipping">Free</span>
+                    </div>
+                    <div class="flex justify-between text-dark-text-secondary">
+                        <span data-i18n="checkout.summary.tax">Tax</span>
+                        <span>$22.00</span>
+                    </div>
+                    <div class="border-t border-gray-600 pt-4 flex justify-between text-dark-text font-medium">
+                        <span data-i18n="checkout.summary.total">Total</span>
+                        <span>$241.98</span>
+                    </div>
+                </div>
+                
+                <!-- Promo Code -->
+                <div class="mb-6">
+                    <div class="flex space-x-2">
+                        <input type="text" placeholder="Promo Code" class="flex-1 p-2 bg-dark-bg border border-gray-600 rounded text-dark-text">
+                        <button class="px-4 py-2 bg-primary-gold text-dark-bg rounded font-medium" data-i18n="checkout.summary.apply">Apply</button>
+                    </div>
+                </div>
+                
+                <!-- Place Order Button -->
+                <button id="placeOrderBtn" class="w-full btn-checkout py-3 rounded-full" data-i18n="checkout.placeOrder">Place Order</button>
+                
+                <!-- Secure Checkout Notice -->
+                <div class="mt-4 flex items-center justify-center text-dark-text-secondary text-sm">
+                    <i class="fas fa-lock mr-2"></i>
+                    <span data-i18n="checkout.secureNotice">Secure Checkout - Your data is protected</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-xl font-cormorant font-bold mb-6" data-i18n="footer.brand">Alda Perfume</h3>
+                    <p class="text-gray-400" data-i18n="footer.tagline">Crafting your perfect scent story</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-cormorant font-bold mb-6" data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.collections">Collections</a></li>
+                        <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.findScent">Find Your Scent</a></li>
+                        <li><a href="#" class="hover:text-white transition" data-i18n="footer.links.about">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-cormorant font-bold mb-6" data-i18n="footer.contact">Contact</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><span data-i18n="footer.contactInfo.email">Email:</span> contact@aldaperfume.com</li>
+                        <li><span data-i18n="footer.contactInfo.phone">Phone:</span> +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function selectPayment(method) {
+            // Remove selected class from all payment methods
+            document.querySelectorAll('.payment-method').forEach(el => {
+                el.classList.remove('selected');
+            });
+            
+            // Add selected class to the clicked payment method
+            document.querySelector(`[onclick="selectPayment('${method}')"]`).classList.add('selected');
+            
+            // Check the radio button
+            document.querySelector(`#${method === 'credit' ? 'creditCard' : method === 'paypal' ? 'paypal' : 'applePay'}`).checked = true;
+            
+            // Show/hide credit card details
+            const creditCardDetails = document.getElementById('creditCardDetails');
+            if (method === 'credit') {
+                creditCardDetails.classList.remove('hidden');
+            } else {
+                creditCardDetails.classList.add('hidden');
+            }
+        }
+        
+        // Place order button click handler
+        document.getElementById('placeOrderBtn').addEventListener('click', function() {
+            // Validate form fields
+            const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'address', 'city', 'state', 'zip', 'country'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    input.style.borderColor = 'red';
+                    isValid = false;
+                } else {
+                    input.style.borderColor = 'rgba(194,165,117,0.3)';
+                }
+            });
+            
+            // Check if payment method is selected
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+            if (!paymentMethod) {
+                alert('Please select a payment method');
+                isValid = false;
+            }
+            
+            // If credit card is selected, validate card details
+            if (paymentMethod && paymentMethod.value === 'credit') {
+                const cardFields = ['cardNumber', 'expiryDate', 'cvv', 'nameOnCard'];
+                cardFields.forEach(field => {
+                    const input = document.getElementById(field);
+                    if (!input.value.trim()) {
+                        input.style.borderColor = 'red';
+                        isValid = false;
+                    } else {
+                        input.style.borderColor = 'rgba(194,165,117,0.3)';
+                    }
+                });
+            }
+            
+            if (isValid) {
+                // Submit the form or redirect to confirmation page
+                alert('Order placed successfully! Redirecting to confirmation page...');
+                // window.location.href = '/confirmation.html';
+            } else {
+                alert('Please fill in all required fields');
+            }
+        });
+    </script>
+</body>
+<script src="js/githubLink.js"></script>
+</html> 

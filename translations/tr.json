@@ -403,7 +403,7 @@
     }
   },
   "cart": {
-    "pageTitle": "Alışveriş Sepeti - Alda Perfume",
+    "pageTitle": "Alışveriş Sepeti - Alda Parfüm",
     "title": "Alışveriş Sepeti",
     "remove": "Kaldır",
     "summary": {
@@ -415,5 +415,42 @@
       "total": "Toplam"
     },
     "checkout": "Ödemeye Geç"
+  },
+  "checkout": {
+    "pageTitle": "Ödeme - Alda Parfüm",
+    "title": "Ödeme",
+    "shipping": {
+      "title": "Teslimat Bilgileri",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-posta Adresi",
+      "phone": "Telefon Numarası",
+      "address": "Adres",
+      "city": "Şehir",
+      "state": "İlçe/Bölge",
+      "zip": "Posta Kodu",
+      "country": "Ülke"
+    },
+    "payment": {
+      "title": "Ödeme Yöntemi",
+      "creditCard": "Kredi Kartı",
+      "paypal": "PayPal",
+      "applePay": "Apple Pay",
+      "cardNumber": "Kart Numarası",
+      "expiryDate": "Son Kullanma Tarihi",
+      "cvv": "CVV",
+      "nameOnCard": "Kart Üzerindeki İsim"
+    },
+    "summary": {
+      "title": "Sipariş Özeti",
+      "subtotal": "Ara Toplam",
+      "shipping": "Kargo",
+      "freeShipping": "Ücretsiz",
+      "tax": "Vergi",
+      "total": "Toplam",
+      "apply": "Uygula"
+    },
+    "placeOrder": "Siparişi Tamamla",
+    "secureNotice": "Güvenli Ödeme - Verileriniz korunmaktadır"
   }
 } 
